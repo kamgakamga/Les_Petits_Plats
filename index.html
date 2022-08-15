@@ -12,90 +12,57 @@
       content="Les petits plats, outil de recettes de cuisine"
       name="keywords"
     />
-    <link rel="icon" href="./assets/image/icone.svg" />
-
+    <link rel="icon" href="./assets/image/icone.png" />
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./assets/style/reset.css" />
     <!-- Style CSS -->
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5f2e0ae9aa.js" crossorigin="anonymous"></script>
     <title>Le Petit Chef</title>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="header">
-        <a
-          class="header__brand"
-        >
-          <img
-            src="./assets/image/logo.svg"
-            class="header__logo"
-            alt="Logo : Les petits plats"
+    <header class="header">
+      <img
+        src="./assets/image/logo.svg" class="header__logo" alt="Logo : Les petits plats"
+      />
+    </header>
+
+    <main class="main">
+      <section class="search">
+        <div class="search__input-group">
+          <input
+            type="text"
+            class="search__input"
+            placeholder="Rechercher un ingrédient, un appareil, un ustensile, une recette..."
           />
-        </a>
-      </header>
+          <button class="search__button">
+            <img src="./assets/image/loupe.svg" alt="Go further" />
+          </button>
+        </div>
+      </section>
 
-      <main class="main">
-        <section class="search">
-          <div class="search__input-group">
-            <input
-              type="text"
-              class="search__input"
-              placeholder="Rechercher un ingrédient, un appareil, un ustensile, une recette..."
-            />
-            <button class="search__button">
-              <img src="./assets/image/loupe.svg" alt="Go further" />
-            </button>
-          </div>
-        </section>
+      <section id="tags__selected">
+        <div class="tags__ingredients--wrapper"></div>
+        <div class="tags__appliance--wrapper"></div>
+        <div class="tags__ustensils--wrapper"></div>
+        <!-- ARRAY OF TAGS EN JAVASCRIPT -->
+      </section>
 
-        <section class="tags">
-          <!-- ARRAY OF TAGS EN JAVASCRIPT -->
-        </section>
-
-        <section class="filter">
-          <div class="filter__custom-select">
-            <span class="filter__custom-arrow"></span>
-            <input
-              class="filter__select filter__select--primary"
-              type="button"
-              data-color="primary"
-              data-value="Ingrédients"
-              value="Ingrédients"
-            />
-            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-          </div>
-
-          <div class="filter__custom-select">
-            <span class="filter__custom-arrow"></span>
-            <input
-              class="filter__select filter__select--success"
-              type="button"
-              data-color="success"
-              data-value="Appareil"
-              value="Appareil"
-            />
-            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-          </div>
-
-          <div class="filter__custom-select">
-            <span class="filter__custom-arrow"></span>
-            <input
-              class="filter__select filter__select--danger"
-              type="button"
-              data-color="danger"
-              data-value="Ustensiles"
-              value="Ustensiles"
-            />
-            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-          </div>
-        </section>
-        <section class="cards">
-          <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
-        </section>
-      </main>
-    </div>
-
-    <script src="./index.js"></script>
-
+      <section id="filters">
+        <div class="filters__ingredients"></div>
+        <div class="filters__appliance"></div>
+        <div class="filters__ustensils"></div>
+      </section>
+      
+      <section id="recipes__cards">
+        <!-- CARDS COMPONENT JAVASCRIPTS Recipes_cards.js -->
+      </section>
+      <span class="no-result-message"></span>
+    </main>
+    <script src="./scripts/main_index/index.js"></script>
+    <script src="./scripts/main_index/recipes_cards.js"></script>
   </body>
 </html>
