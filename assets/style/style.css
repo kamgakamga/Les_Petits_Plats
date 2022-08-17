@@ -4,20 +4,30 @@
   --primary: #3282f7;
   --success: #68d9a4;
   --danger: #ed6454;
-  --border-radius: 5px;
   --fs-18: 18px;
   --fs-12: 12px;
   --br-5: 5px;
 }
- 
+
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "latoregular", sans-serif;
+  font-family: "lato", sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: var(--fs-18);
 }
 
 
+/* main */
+
+.main {
+  width: 1240px;
+  margin: auto;
+}
 /* header section */
 
 
@@ -31,7 +41,10 @@ body {
   width: 270px;
 }
 
+
 /* search section */
+
+
 .search__input-group {
   position: relative;
   overflow: hidden;
@@ -42,7 +55,7 @@ body {
 .search__input {
   background: var(--light-grey);
   border: none;
-  border-radius: var(--border-radius);
+  border-radius: var(--br-5);
   
   padding: 1.5rem;
   width: 100%;
@@ -56,7 +69,6 @@ body {
   color: #000;
   opacity: 0.25;
   font-size: var(--fs-18);
-  width: 80%;
 }
 
 .search__button {
@@ -107,8 +119,16 @@ body {
 /* Filters section */
 
 
-.filter {
-  display: none;
+#filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  gap: 30px;
+  flex-grow: 4;
+
+  position: relative;
+  left: 0;
 }
 
 .filter__custom-select {
@@ -237,100 +257,95 @@ body {
   width: 15%;
 }
 
-/* Recipes section */
+
+/* Recipes section - ARTICLES */
 
 
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  width: 95%;
-  margin: 20px auto;
-}
-
-.cards__no-recipes {
+#recipes__cards {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  height: 200px;
-  z-index: -1;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  margin: 1rem 0 1rem 0;
 }
 
-.cards__no-recipes-text {
-  font-weight: bold;
-  font-size: var(--fs-18);
-  color: rgb(49, 49, 49);
-}
-.card {
-  height: 364px;
-  background: var(--light-grey);
+#recipes__cards article {
   border-radius: var(--br-5);
+  margin: 1rem 0;
 }
 
-.card a {
-  display: block;
-  text-decoration: none;
-  color: #000;
+#recipes__cards header {
+  display: flex;
+  justify-content: space-around;
+  width: 380px;
+  padding: 20px 10px 0px 10px;
+  background-color: var(--light-grey);
 }
 
-.card__thumb {
-  height: 178px;
+.blank-space {
+  width: 380px;
+  height: 180px;
   background-color: var(--dark-grey);
   border-top-left-radius: var(--br-5);
   border-top-right-radius: var(--br-5);
 }
 
-.card__body {
-  height: 186px;
-  padding: 20px;
+#recipes__cards .informations {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--light-grey);
+
+  width: 380px;
+  height: 150px;
+  font-size: var(--fs-12);
+  padding: 20px 0 20px 0;
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  border-bottom-left-radius: var(--br-5);
+  border-bottom-right-radius: var(--br-5);
+}
+
+#recipes__cards header h2 {
+  font-size: var(--fs-18);
+  font-weight: normal;
+  margin-left: 0;
+}
+
+#recipes__cards header h3 {
+  flex-direction: row;
+  padding: 0 5px;
+
+  font-size: var(--fs-18);
+  font-weight: bold;
   margin: 0;
 }
 
-.card__head {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
-.card__title {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-.card__timeclock {
-  content: url("../assets/image/time.svg");
-}
-
-.card__time {
+#recipes__cards header .duration-icon {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 7px;
-  font-weight: 700;
+  margin: 0;
 }
 
-.card__content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-  font-size: var(--fs-12);
+#recipes__cards .ingredients__detailled--bloc {
+  padding-left: 1.5rem;
 }
 
-.card__ingredients {
-  height: 105px;
+#recipes__cards .description {
+  text-overflow: ellipsis;
   overflow: hidden;
+
+  padding: 0 1.5rem;
+  text-align: justify;
+  width: 70%;
 }
 
-.card__ingredient--bold {
-  font-weight: 700;
-}
 
-.card__description {
-  height: 109px;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Error Message */
+
+.no-result-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--danger);
 }

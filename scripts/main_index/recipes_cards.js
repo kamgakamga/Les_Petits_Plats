@@ -59,15 +59,15 @@ function getRecipeCard(data) {
 
 function getIngredients(ingredients) {
   const column = document.createElement('div');
-  column.classList.add('ingredients__detailed--bloc');
+  column.classList.add('ingredients__detailled--bloc');
 
   let ingredientName;
 
-  for(const ingredient of ingredients) {
+  for (const ingredient of ingredients) {
     ingredientName = document.createElement('p');
     if (ingredient.unit === '' || ingredient.unit == null) {
       if (ingredient.quantity) {
-        ingredient.innerHTML = `<strong>${ingredient.ingredient} :</strong> ${ingredient.quantity}`;
+        ingredientName.innerHTML = `<strong>${ingredient.ingredient} :</strong> ${ingredient.quantity}`;
       } else {
         ingredientName.innerHTML = `<strong>${ingredient.ingredient}`;
       } 
