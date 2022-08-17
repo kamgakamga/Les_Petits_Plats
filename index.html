@@ -13,8 +13,6 @@
       name="keywords"
     />
     <link rel="icon" href="./assets/image/icone.png" />
-    <!-- Reset CSS -->
-    <link rel="stylesheet" href="./assets/style/reset.css" />
     <!-- Style CSS -->
     <link rel="stylesheet" href="./assets/style/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,30 +37,31 @@
             placeholder="Rechercher un ingrédient, un appareil, un ustensile, une recette..."
           />
           <button class="search__button">
-            <img src="./assets/image/loupe.svg" alt="Go further" />
+            <img src="./assets/image/loupe.svg" alt="Search" />
           </button>
         </div>
       </section>
 
       <section id="tags__selected">
-        <div class="tags__ingredients--wrapper"></div>
-        <div class="tags__appliance--wrapper"></div>
-        <div class="tags__ustensils--wrapper"></div>
+        <div class="tag__ingredients--wrapper"></div>
+        <div class="tag__appliances--wrapper"></div>
+        <div class="tag__ustensils--wrapper"></div>
         <!-- ARRAY OF TAGS EN JAVASCRIPT -->
       </section>
 
       <section id="filters">
-        <div class="filters__ingredients"></div>
-        <div class="filters__appliance"></div>
-        <div class="filters__ustensils"></div>
+        <div class="filter__ingredients"></div>
+        <div class="filter__appliances"></div>
+        <div class="filter__ustensils"></div>
       </section>
       
       <section id="recipes__cards">
-        <!-- CARDS COMPONENT JAVASCRIPTS Recipes_cards.js -->
+        <!-- CARDS COMPONENT JAVASCRIPTS recipes_cards.js -->
       </section>
       <span class="no-result-message"></span>
     </main>
     <script src="./scripts/main_index/index.js"></script>
     <script src="./scripts/main_index/recipes_cards.js"></script>
+    <script src="./scripts/utils/filters_recipes.js"></script>
   </body>
 </html>
