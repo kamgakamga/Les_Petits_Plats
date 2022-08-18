@@ -22,7 +22,7 @@ body {
 }
 
 
-/* main */
+/*** main ***/
 
 .main {
   width: 1240px;
@@ -30,7 +30,7 @@ body {
 }
 
 
-/* header section */
+/*** header section ***/
 
 
 .header {
@@ -44,7 +44,7 @@ body {
 }
 
 
-/* search section */
+/*** search section ***/
 
 
 .search__input-group {
@@ -83,7 +83,7 @@ body {
 }
 
 
-/* tags section */
+/*** tags section ***/
 
 #tags__selected {
   margin-bottom: 1rem;
@@ -111,7 +111,7 @@ body {
   margin: 0;
 }
 
-  /* Filter__ingredient */ 
+/* Filter__ingredient */ 
 
 .filter__ingredients--template {
   margin-left: 0;
@@ -121,7 +121,7 @@ body {
 }
 
 .filter__ingredients--template input::placeholder {
-  color: rgba(255, 255, 255, 0,5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .filter__ingredients--close {
@@ -151,7 +151,59 @@ body {
   font-weight: normal;
 }
 
-  /* filter Appliances */
+.filter__ingredients--view {
+  flex-direction: column;
+  align-items: center;
+
+  color: #FFF;
+  background-color: var(--primary);
+
+  font-weight: bold;
+  height: 70px;
+  border-radius: var(--br-5);
+
+  overflow: hidden;
+}
+
+.filter__ingredients--view header h2 {
+  font-weight: normal;
+  font-size: var(--fs-18);
+  margin-right: 0;
+}
+
+.filter__ingredients--view header .fa-angle-up {
+  display: none;
+}
+
+.filter__ingredients--view input {
+  position: absolute;
+  outline: none;
+
+  width: 650px;
+  height: 70px;
+
+  font-size: 1rem;
+
+  color: #FFF;
+  background-color: var(--primary);
+
+  border: none;
+  border-radius: var(--br-5);
+
+  margin-left: 1rem;
+}
+
+.filter__ingredients--angleUp {
+  color: #FFF;
+  position: absolute;
+  left: 625px;
+  top: 34px;
+
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* filter Appliances */
 
 .filter__appliances--template {
   margin-left: 0;
@@ -161,7 +213,7 @@ body {
 }
 
 .filter__appliances--template input::placeholder {
-  color: rgba(255, 255, 255, 0,5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .filter__appliances--close {
@@ -191,7 +243,59 @@ body {
   font-weight: normal;
 }
 
-  /*filter ustensils */
+.filter__appliances--view {
+  flex-direction: column;
+  align-items: center;
+
+  color: #FFF;
+  background-color: var(--success);
+
+  font-weight: bold;
+  height: 70px;
+  border-radius: var(--br-5);
+
+  overflow: hidden;
+}
+
+.filter__appliances--view header h2 {
+  font-weight: normal;
+  font-size: var(--fs-18);
+  margin-right: 0;
+}
+
+.filter__appliances--view header .fa-angle-up {
+  display: none;
+}
+
+.filter__appliances--view input {
+  position: absolute;
+  outline: none;
+
+  width: 650px;
+  height: 70px;
+
+  font-size: 1rem;
+
+  color: #FFF;
+  background-color: var(--success);
+
+  border: none;
+  border-radius: var(--br-5);
+
+  margin-left: 1rem;
+}
+
+.filter__appliances--angleUp {
+  color: #FFF;
+  position: absolute;
+  left: 825px;
+  top: 34px;
+
+  z-index: 100;
+  cursor: pointer;
+}
+
+/*filter ustensils */
 
 .filter__ustensils--template {
   margin-left: 0;
@@ -201,7 +305,7 @@ body {
 }
 
 .filter__ustensils--template input::placeholder {
-  color: rgba(255, 255, 255, 0,5);
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .filter__ustensils--close {
@@ -231,6 +335,57 @@ body {
   font-weight: normal;
 }
 
+.filter__ustensils--view {
+  flex-direction: column;
+  align-items: center;
+
+  color: #FFF;
+  background-color: var(--danger);
+
+  font-weight: bold;
+  height: 70px;
+  border-radius: var(--br-5);
+
+  overflow: hidden;
+}
+
+.filter__ustensils--view header h2 {
+  font-weight: normal;
+  font-size: var(--fs-18);
+  margin-right: 0;
+}
+
+.filter__ustensils--view header .fa-angle-up {
+  display: none;
+}
+
+.filter__ustensils--view input {
+  position: absolute;
+  outline: none;
+
+  width: 650px;
+  height: 70px;
+
+  font-size: 1rem;
+
+  color: #FFF;
+  background-color: var(--danger);
+
+  border: none;
+  border-radius: var(--br-5);
+
+  margin-left: 1rem;
+}
+
+.filter__ustensils--angleUp {
+  color: #FFF;
+  position: absolute;
+  left: 1025px;
+  top: 34px;
+
+  z-index: 100;
+  cursor: pointer;
+}
 
 /* Recipes section - ARTICLES */
 
