@@ -2,7 +2,7 @@
 
 function filterIngredients() {
   /* getDataJson is defined on index.js */
-  // getDataJson();
+  getDataJson();
   
   const ingredientsBox = document.getElementsByClassName('filter__ingredients');
   const template = document.createElement('div');
@@ -38,9 +38,9 @@ function filterIngredients() {
   inputIngredients.setAttribute('placeholder', 'Sélectionner un ingrédient...');
   inputIngredients.className = 'filter__ingredients--input';
 
-  const ingredientsListed = document.createElement('div');
-  ingredientsListed.className = 'filter__ingredients--list';
-  ingredientsListed.style.display = 'none';
+  const ingredientsListBox = document.createElement('ul');
+  ingredientsListBox.className = 'filter__ingredients--list';
+  ingredientsListBox.style.display = 'none';
 
   /* Ingredients Event */
 
@@ -54,9 +54,10 @@ function filterIngredients() {
       arrowDown.style.display = 'none';
       arrowUp.style.display = 'flex';
       template.style.width = '650px';
-      ingredientsListed.style.display = 'flex';
+      ingredientsListBox.style.display = 'flex';
     }
   });
+  
   // Lors du clique sur ArrowUp 
   arrowUp.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-up fa-lg') {
@@ -67,7 +68,7 @@ function filterIngredients() {
       arrowDown.style.display = 'flex';
       arrowUp.style.display = 'none';
       template.style.width = '170px';
-      ingredientsListed.style.display = 'none';
+      ingredientsListBox.style.display = 'none';
 
     }
   });
@@ -82,7 +83,7 @@ function filterIngredients() {
   article.appendChild(hiddenAngle);
   hiddenAngle.appendChild(arrowUp);
   article.appendChild(inputIngredients);
-  article.appendChild(ingredientsListed);
+  article.appendChild(ingredientsListBox);
 
   return(article);
 }
@@ -92,7 +93,7 @@ function filterIngredients() {
 
 function filterAppliances() {
   /* getDataJson is defined on index.js */
-  // getDataJson();
+  getDataJson();
   
   const appliancesBox = document.getElementsByClassName('filter__appliances');
   const template = document.createElement('div');
@@ -128,9 +129,9 @@ function filterAppliances() {
   inputAppliances.setAttribute('placeholder', 'Sélectionner un appareil...');
   inputAppliances.className = 'filter__appliances--input';
 
-  const appliancesListed = document.createElement('div');
-  appliancesListed.className = 'filter__appliances--list';
-  appliancesListed.style.display = 'none';
+  const appliancesListBox = document.createElement('ul');
+  appliancesListBox.className = 'filter__appliances--list';
+  appliancesListBox.style.display = 'none';
 
   /* Appliances Event */
 
@@ -144,7 +145,7 @@ function filterAppliances() {
       arrowDown.style.display = 'none';
       arrowUp.style.display = 'flex';
       template.style.width = '650px';
-      appliancesListed.style.display = 'flex';
+      appliancesListBox.style.display = 'flex';
     }
   });
 
@@ -158,7 +159,7 @@ function filterAppliances() {
       arrowDown.style.display = 'flex';
       arrowUp.style.display = 'none';
       template.style.width = '170px';
-      appliancesListed.style.display = 'none';
+      appliancesListBox.style.display = 'none';
     }
   });
 
@@ -172,7 +173,7 @@ function filterAppliances() {
   article.appendChild(hiddenAngle);
   hiddenAngle.appendChild(arrowUp);
   article.appendChild(inputAppliances);
-  article.appendChild(appliancesListed);
+  article.appendChild(appliancesListBox);
 
   return(article);
 }
@@ -181,7 +182,7 @@ function filterAppliances() {
 
 function filterUstensils() {
   /* getDataJson is defined on index.js */
-  // getDataJson();
+  getDataJson();
   
   const ustensilsBox = document.getElementsByClassName('filter__ustensils');
   const template = document.createElement('div');
@@ -217,9 +218,11 @@ function filterUstensils() {
   inputUstensils.setAttribute('placeholder', 'Sélectionner un ustensil...');
   inputUstensils.className = 'filter__ustensils--input';
 
-  const ustensilsListed = document.createElement('div');
-  ustensilsListed.className = 'filter__appliances--list';
-  ustensilsListed.style.display = 'none';
+  const ustensilsListBox = document.createElement('ul');
+  ustensilsListBox.className = 'filter__ustensils--list';
+  ustensilsListBox.style.display = 'none';
+
+  /* Ustensils Event */
 
   // Lors du clique sur ArrowDown 
   arrowDown.addEventListener('click', (e) => {
@@ -231,7 +234,7 @@ function filterUstensils() {
       arrowDown.style.display = 'none';
       arrowUp.style.display = 'flex';
       template.style.width = '650px';
-      ustensilsListed.style.display = 'flex';
+      ustensilsListBox.style.display = 'flex';
     }
   });
 
@@ -245,7 +248,7 @@ function filterUstensils() {
       arrowDown.style.display = 'flex';
       arrowUp.style.display = 'none';
       template.style.width = '170px';
-      ustensilsListed.style.display = 'none';
+      ustensilsListBox.style.display = 'none';
     }
   });
 
@@ -259,10 +262,56 @@ function filterUstensils() {
   article.appendChild(hiddenAngle);
   hiddenAngle.appendChild(arrowUp);
   article.appendChild(inputUstensils);
-  article.appendChild(ustensilsListed);
+  article.appendChild(ustensilsListBox);
 
   return(article);
 }
+
+// Remplir les filtres par catégorie :
+const fillFilters = (recipes) => {
+  const ingredientsBloc = document.querySelector('.filter__ingredients--list');
+  const appliancesBloc = document.querySelector('.filter__appliances--list');
+  const ustensilsBloc = document.querySelector('.filter__ustensils--list');
+
+  const ingredientsList = [];
+  const appliancesList = [];
+  const ustensilsList = [];
+
+  recipes.forEach((recipe) => {
+    /* Ingredients */
+    recipe.ingredients.forEach(({ ingredient }) => {
+      if (ingredientsList.includes(ingredient) === false) {
+        ingredientsList.push(ingredient);
+        const filterItem = document.createElement('li');
+        filterItem.classList.add('filter__ingredients--items');
+        filterItem.innerText = ingredient;
+        ingredientsBloc.appendChild(filterItem);
+      }
+    });
+    
+    /* appliances */
+      if (appliancesList.includes(recipe.appliance) === false) {
+        appliancesList.push(recipe.appliance);
+        const filterItem = document.createElement('li');
+        filterItem.classList.add('filter__appliances--items');
+        filterItem.innerText = recipe.appliance;
+        appliancesBloc.appendChild(filterItem);
+      }
+
+    /* ustensils */
+    recipe.ustensils.forEach((ustensil) => {
+      if (ustensilsList.includes(ustensil) === false) {
+        ustensilsList.push(ustensil);
+        const filterItem = document.createElement('li');
+        filterItem.classList.add('filter__ustensils--items');
+        filterItem.innerText = ustensil;
+        ustensilsBloc.appendChild(filterItem);
+      }
+    });
+  });
+
+}
+
 
 
 async function getDataRecipes() {
@@ -280,8 +329,7 @@ async function init() {
   filterUstensils();
 
   const { recipes } = await getDataRecipes();
+  fillFilters(recipes);
 }
 
 init();
-
-

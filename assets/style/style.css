@@ -160,7 +160,9 @@ body {
 
   font-weight: bold;
   height: 70px;
-  border-radius: var(--br-5);
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);
+
 
   overflow: hidden;
 }
@@ -188,8 +190,8 @@ body {
   background-color: var(--primary);
 
   border: none;
-  border-radius: var(--br-5);
-
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);
   margin-left: 1rem;
 }
 
@@ -201,6 +203,48 @@ body {
 
   z-index: 100;
   cursor: pointer;
+}
+
+.filter__ingredients--list {
+  background-color: var(--primary);
+  overflow: hidden;
+
+  position: absolute;
+  width: 666px;
+  height: auto;
+  max-height: 275px;
+
+  flex-wrap: wrap;
+
+  margin-top: 70px;
+  padding: 0;
+
+  border-bottom-left-radius: var(--br-5);
+  border-bottom-right-radius: var(--br-5);
+}
+
+.filter__ingredients--list li {
+  width: 30%;
+  padding: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+
+  font-size: var(--fs-18);
+  font-weight: normal;
+}
+
+.filter__ingredients--list li::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  transition: 300ms;
+  background-color: #FFF;
+
+}
+
+.filter__ingredients--list li:hover::after {
+  width: 10%;
 }
 
 /* filter Appliances */
@@ -252,7 +296,8 @@ body {
 
   font-weight: bold;
   height: 70px;
-  border-radius: var(--br-5);
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);  
 
   overflow: hidden;
 }
@@ -280,7 +325,8 @@ body {
   background-color: var(--success);
 
   border: none;
-  border-radius: var(--br-5);
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);
 
   margin-left: 1rem;
 }
@@ -295,7 +341,51 @@ body {
   cursor: pointer;
 }
 
+.filter__appliances--list {
+  background-color: var(--success);
+  overflow: hidden;
+
+  position: absolute;
+  width: 666px;
+  height: auto;
+  max-height: 275px;
+
+  flex-wrap: wrap;
+
+  margin-top: 70px;
+  padding: 0;
+
+  border-bottom-left-radius: var(--br-5);
+  border-bottom-right-radius: var(--br-5);
+}
+
+.filter__appliances--list li {
+  width: 30%;
+  padding: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+
+  font-size: var(--fs-18);
+  font-weight: normal;
+}
+
+.filter__appliances--list li::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  transition: 300ms;
+  background-color: #FFF;
+
+}
+
+.filter__appliances--list li:hover::after {
+  width: 10%;
+}
+
+
 /*filter ustensils */
+
 
 .filter__ustensils--template {
   margin-left: 0;
@@ -344,7 +434,8 @@ body {
 
   font-weight: bold;
   height: 70px;
-  border-radius: var(--br-5);
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);
 
   overflow: hidden;
 }
@@ -372,7 +463,8 @@ body {
   background-color: var(--danger);
 
   border: none;
-  border-radius: var(--br-5);
+  border-top-left-radius: var(--br-5);
+  border-top-right-radius: var(--br-5);
 
   margin-left: 1rem;
 }
@@ -386,6 +478,49 @@ body {
   z-index: 100;
   cursor: pointer;
 }
+
+.filter__ustensils--list {
+  background-color: var(--danger);
+  overflow: hidden;
+
+  position: absolute;
+  width: 666px;
+  height: auto;
+  max-height: 275px;
+
+  flex-wrap: wrap;
+
+  margin-top: 70px;
+  padding: 0;
+
+  border-bottom-left-radius: var(--br-5);
+  border-bottom-right-radius: var(--br-5);
+}
+
+.filter__ustensils--list li {
+  width: 30%;
+  padding: 0.5rem;
+  cursor: pointer;
+  list-style: none;
+
+  font-size: var(--fs-18);
+  font-weight: normal;
+}
+
+.filter__ustensils--list li::after {
+  content: '';
+  display: block;
+  width: 0px;
+  height: 2px;
+  transition: 300ms;
+  background-color: #FFF;
+
+}
+
+.filter__ustensils--list li:hover::after {
+  width: 10%;
+}
+
 
 /* Recipes section - ARTICLES */
 
