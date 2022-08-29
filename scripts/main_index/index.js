@@ -1,8 +1,6 @@
 async function getDataJson() {
   const response = await fetch ('data/recipes.json');
   const recipes = await response.json();
-  // console.log(recipes);
-
   return recipes;
 }
 

@@ -22,7 +22,7 @@ body {
 }
 
 
-/*** main ***/
+/*** MAIN ***/
 
 .main {
   width: 1240px;
@@ -85,9 +85,84 @@ body {
 
 /*** tags section ***/
 
+
+.tag__ingredients--wrapper {
+  left: 0;
+  width: 170px;
+  margin-left: 0px;
+  margin-right: 20px;
+}
+
+.tag__appliances--wrapper {
+  left: 0;
+  width: 170px;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.tag__ustensils--wrapper {
+  left: 0;
+  width: 170px;
+  margin-left: 33px;
+  margin-right: 0px;
+}
+
 #tags__selected {
+  display: flex;
+  left: 0;
+  top: 0;
   margin-bottom: 1rem;
 }
+
+#tags__selected li {
+  width: 120px;
+  font-size: 14px;
+  font-weight: normal;
+  list-style: none;
+}
+
+#tags__selected .tag__ingredients--wrapper .tag__ingredient {
+  background-color: var(--primary);
+  height: auto;
+  width: 150px;
+  color: #FFF;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  border-radius: var(--br-5);
+
+  display: flex;
+  align-items: center;
+}
+
+#tags__selected .tag__appliances--wrapper .tag__appliance {
+  background-color: var(--success);
+  height: auto;
+  width: 150px;
+  color: #FFF;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  border-radius: var(--br-5);
+
+  display: flex;
+  align-items: center;
+}
+
+#tags__selected .tag__ustensils--wrapper .tag__ustensil {
+  background-color: var(--danger);
+  height: auto;
+  width: 150px;
+  color: #FFF;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 10px;
+  border-radius: var(--br-5);
+
+  display: flex;
+  align-items: center;
+}
+
 
 /*** Filters section ***/
 

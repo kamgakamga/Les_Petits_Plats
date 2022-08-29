@@ -1,9 +1,13 @@
-//  function filterIngredients créer et fait apparaitre le filtre Ingrédients.
+/* Toutes les fonctions et variables de la ligne 318 à 324 sont définis dans Utils.tags.js */
 
-function filterIngredients() {
+
+/*** function filterIngredients créer et fait apparaitre le filtre Ingrédients. ***/
+
+async function filterIngredients() {
   /* getDataJson is defined on index.js */
   getDataJson();
-  
+
+
   const ingredientsBox = document.getElementsByClassName('filter__ingredients');
   const template = document.createElement('div');
   template.className = 'filter__ingredients--template';
@@ -42,9 +46,9 @@ function filterIngredients() {
   ingredientsListBox.className = 'filter__ingredients--list';
   ingredientsListBox.style.display = 'none';
 
-  /* Ingredients Event */
+  /** Ingredients Event **/
 
-  // Lors du clique sur ArrowDown 
+  /* Lors du clique sur ArrowDown */
   arrowDown.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-down fa-lg') {
       article.classList.remove('filter__ingredients--close');
@@ -58,7 +62,7 @@ function filterIngredients() {
     }
   });
   
-  // Lors du clique sur ArrowUp 
+  /* Lors du clique sur ArrowUp */
   arrowUp.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-up fa-lg') {
       article.classList.remove('filter__ingredients--view');
@@ -73,7 +77,7 @@ function filterIngredients() {
     }
   });
 
-  // Append Section 
+  /* Append Section */
   ingredientsBox[0].appendChild(template);
   template.appendChild(article);
   article.appendChild(headerIngredients);
@@ -89,7 +93,7 @@ function filterIngredients() {
 }
 
 
-//  function filterAppliances créer et fait apparaitre le filtre appareils.
+/*** function filterAppliances créer et fait apparaitre le filtre appareils. ***/
 
 function filterAppliances() {
   /* getDataJson is defined on index.js */
@@ -133,9 +137,9 @@ function filterAppliances() {
   appliancesListBox.className = 'filter__appliances--list';
   appliancesListBox.style.display = 'none';
 
-  /* Appliances Event */
+  /** Appliances Event **/
 
-  // Lors du clique sur ArrowDown 
+  /* Lors du clique sur ArrowDown */
   arrowDown.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-down fa-lg') {
       article.classList.remove('filter__appliances--close');
@@ -149,7 +153,7 @@ function filterAppliances() {
     }
   });
 
-  // Lors du clique sur ArrowUp 
+  /* Lors du clique sur ArrowUp */
   arrowUp.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-up fa-lg') {
       article.classList.remove('filter__appliances--view');
@@ -163,7 +167,7 @@ function filterAppliances() {
     }
   });
 
-  // Append Section 
+  /* Append Section */
   appliancesBox[0].appendChild(template);
   template.appendChild(article);
   article.appendChild(headerAppliances);
@@ -178,7 +182,7 @@ function filterAppliances() {
   return(article);
 }
 
-//  function filterUstensils créer et fait apparaitre le filtre ustensils.
+/*** function filterUstensils créer et fait apparaitre le filtre ustensils. ***/
 
 function filterUstensils() {
   /* getDataJson is defined on index.js */
@@ -222,9 +226,9 @@ function filterUstensils() {
   ustensilsListBox.className = 'filter__ustensils--list';
   ustensilsListBox.style.display = 'none';
 
-  /* Ustensils Event */
+  /** Ustensils Event **/
 
-  // Lors du clique sur ArrowDown 
+  /* Lors du clique sur ArrowDown */
   arrowDown.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-down fa-lg') {
       article.classList.remove('filter__ustensils--close');
@@ -238,7 +242,7 @@ function filterUstensils() {
     }
   });
 
-  // Lors du clique sur ArrowUp 
+  /* Lors du clique sur ArrowUp */
   arrowUp.addEventListener('click', (e) => {
     if (e.target.className === 'fa-solid fa-angle-up fa-lg') {
       article.classList.remove('filter__ustensils--view');
@@ -252,7 +256,7 @@ function filterUstensils() {
     }
   });
 
-  // Append Section 
+  /* Append Section */
   ustensilsBox[0].appendChild(template);
   template.appendChild(article);
   article.appendChild(headerUstensils);
@@ -267,7 +271,8 @@ function filterUstensils() {
   return(article);
 }
 
-// Remplir les filtres par catégorie :
+/*** Fonction pour remplir les filtres par catégorie ***/
+
 const fillFilters = (recipes) => {
   const ingredientsBloc = document.querySelector('.filter__ingredients--list');
   const appliancesBloc = document.querySelector('.filter__appliances--list');
@@ -278,7 +283,7 @@ const fillFilters = (recipes) => {
   const ustensilsList = [];
 
   recipes.forEach((recipe) => {
-    /* Ingredients */
+    /** Ingredients **/
     recipe.ingredients.forEach(({ ingredient }) => {
       if (ingredientsList.includes(ingredient) === false) {
         ingredientsList.push(ingredient);
@@ -289,7 +294,7 @@ const fillFilters = (recipes) => {
       }
     });
     
-    /* appliances */
+    /** appliances **/
       if (appliancesList.includes(recipe.appliance) === false) {
         appliancesList.push(recipe.appliance);
         const filterItem = document.createElement('li');
@@ -298,7 +303,7 @@ const fillFilters = (recipes) => {
         appliancesBloc.appendChild(filterItem);
       }
 
-    /* ustensils */
+    /** ustensils **/
     recipe.ustensils.forEach((ustensil) => {
       if (ustensilsList.includes(ustensil) === false) {
         ustensilsList.push(ustensil);
@@ -309,9 +314,75 @@ const fillFilters = (recipes) => {
       }
     });
   });
+  
+  /* variables et fonctions déclarer dans scripts/utils/tags.js */ 
+  tagIngredientAlreadyAdded = false;
+  addTagFilterIngredients();
+  tagApplianceAlreadyAdded = false;
+  addTagFilterAppliances();
+  tagUstensilAlreadyAdded = false;
+  addTagFilterUstensils();
+};
 
+/*** Fonction pour éviter d'ouvrir tous les filtres, en ouvrir qu'un seul. ***/
+async function isArrowClicked() {
+  /** Variables **/
+
+  const arrowDownIngredient = document.querySelector('.filter__ingredients--angleDown');
+  const arrowDownAppliance = document.querySelector('.filter__appliances--angleDown');
+  const arrowDownUstensil = document.querySelector('.filter__ustensils--angleDown');
+
+  let ingredientCloseElt;
+  let ingredientArrowUp;
+  let applianceCloseElt;
+  let applianceArrowUp;
+  let ustensilCloseElt;
+  let ustensilArrowUp;
+
+  /** Events **/
+  
+  /* Ingredient */
+  arrowDownIngredient.addEventListener('click', () => {
+    applianceCloseElt = document.querySelector('.filter__appliances--view');
+    applianceArrowUp = document.querySelector('.filter__appliances--angleUp .fa-angle-up');
+    ustensilCloseElt = document.querySelector('.filter__ustensils--view');
+    ustensilArrowUp = document.querySelector('.filter__ustensils--angleUp .fa-angle-up');
+    if (applianceCloseElt != null) {
+      applianceArrowUp.click();
+    }
+    if (ustensilCloseElt != null) {
+      ustensilArrowUp.click();
+    }
+  });
+
+  /* Appliance */ 
+  arrowDownAppliance.addEventListener('click', () => {
+    ustensilCloseElt = document.querySelector('.filter__ustensils--view');
+    ustensilArrowUp = document.querySelector('.filter__ustensils--angleUp .fa-angle-up');
+    ingredientCloseElt = document.querySelector('.filter__ingredients--view');
+    ingredientArrowUp = document.querySelector('.filter__ingredients--angleUp .fa-angle-up');
+    if (ustensilCloseElt != null) {
+      ustensilArrowUp.click();
+    }
+    if (ingredientCloseElt != null) {
+      ingredientArrowUp.click();
+    }
+  });
+
+  /* Ustensil */
+  arrowDownUstensil.addEventListener('click', () => {
+    ingredientCloseElt = document.querySelector('.filter__ingredients--view');
+    ingredientArrowUp = document.querySelector('.filter__ingredients--angleUp .fa-angle-up');
+    applianceCloseElt = document.querySelector('.filter__appliances--view');
+    applianceArrowUp = document.querySelector('.filter__appliances--angleUp .fa-angle-up');
+    if (ingredientCloseElt != null) {
+      ingredientArrowUp.click();
+      }
+    if (applianceCloseElt != null) {
+      applianceArrowUp.click();
+    }  
+  });
 }
-
 
 
 async function getDataRecipes() {
@@ -320,13 +391,13 @@ async function getDataRecipes() {
   
 }
 
-/* Initialisation des fonctions des filtres de manière asynchrone.
-*/ 
+/*** Initialisation des fonctions des filtres de manière asynchrone. ***/ 
 
 async function init() {
   filterIngredients();
   filterAppliances();
   filterUstensils();
+  isArrowClicked();
 
   const { recipes } = await getDataRecipes();
   fillFilters(recipes);
