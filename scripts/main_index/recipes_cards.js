@@ -1,5 +1,32 @@
-/* getRecipeCard is used in the index file */
+/** Fonction pour afficher le contenu de 'ingrédients' pour nos cards. **/
+/* getIngredients is used on our factory 'getRecipeCard' */
 
+function getIngredients(ingredients) {
+  const column = document.createElement('div');
+  column.classList.add('ingredients__detailled--bloc');
+
+  let ingredientName;
+
+  for (const ingredient of ingredients) {
+    ingredientName = document.createElement('p');
+    ingredientName.setAttribute('data-ingredient', ingredient.ingredient);
+    if (ingredient.unit === '' || ingredient.unit== null) {
+      if (ingredient.quantity) {
+        ingredientName.innerHTML = `<strong>${ingredient.ingredient} :</strong> ${ingredient.quantity}`;
+      } else {
+        ingredientName.innerHTML = `<strong>${ingredient.ingredient}`;
+      } 
+    } else {
+        ingredientName.innerHTML = `<strong>${ingredient.ingredient} : </strong> ${ingredient.quantity} ${ingredient.unit}`;
+      }
+    column.appendChild(ingredientName);
+  }
+  return column;
+}
+
+
+/** Factory qui permet de générer nos cards de Recipes. **/
+/* getRecipeCard is used in index.js */
 function getRecipeCard(data) {
   const { id, name, servings, ingredients, time, description,  appliance, ustensils } = data;
 
@@ -31,6 +58,7 @@ function getRecipeCard(data) {
   cardInfo.setAttribute('appliance', appliance);
   cardInfo.setAttribute('ustensils', ustensils);
 
+  /* getIngredients est définit en début de page */
   const recipeIngredients = getIngredients(ingredients);
 
   const recipeDescription = document.createElement('p');
@@ -52,31 +80,6 @@ function getRecipeCard(data) {
   cardInfo.appendChild(recipeDescription);
   article.appendChild(hidden);
 
+  console.log('2 - Récupérer les recipes dans une factory ');
   return (article);
-}
-
-/* Fonction pour afficher le contenu de 'ingrédients'. */
-
-function getIngredients(ingredients) {
-  const column = document.createElement('div');
-  column.classList.add('ingredients__detailled--bloc');
-
-  let ingredientName;
-
-  for (const ingredient of ingredients) {
-    ingredientName = document.createElement('p');
-    ingredientName.setAttribute('data-ingredient', ingredient.ingredient);
-    if (ingredient.unit === '' || ingredient.unit== null) {
-      if (ingredient.quantity) {
-        ingredientName.innerHTML = `<strong>${ingredient.ingredient} :</strong> ${ingredient.quantity}`;
-      } else {
-        ingredientName.innerHTML = `<strong>${ingredient.ingredient}`;
-      } 
-    } else {
-        ingredientName.innerHTML = `<strong>${ingredient.ingredient} : </strong> ${ingredient.quantity} ${ingredient.unit}`;
-      }
-    column.appendChild(ingredientName);
-  }
-  
-  return column;
 }
