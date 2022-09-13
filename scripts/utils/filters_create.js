@@ -64,7 +64,6 @@ async function filterIngredients() {
       article.classList.add('filter__ingredients--view');
       headerIngredients.style.display = 'none';
       inputIngredients.style.display = 'flex';
-      inputIngredients.setAttribute('placeholder', 'Sélectionner un ingrédient...');
       arrowDown.style.display = 'none';
       arrowUp.style.display = 'flex';
       template.style.width = '650px';
@@ -72,7 +71,7 @@ async function filterIngredients() {
       inputIngredients.focus();
       
       /* défini dans filters_input */
-      getInputIngredient();
+      inputIngredient();
     }
   });
   
@@ -166,7 +165,7 @@ function filterAppliances() {
       inputAppliances.focus();
 
     /* Défini dans filters_input */
-    getInputAppliance();
+    inputAppliance();
     }
   });
 
@@ -258,7 +257,7 @@ function filterUstensils() {
       inputUstensils.focus();
 
       /* Défini dans Filters_input */
-      getInputUstensil();
+      inputUstensil();
     }
   });
 

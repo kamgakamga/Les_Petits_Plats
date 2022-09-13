@@ -1,7 +1,7 @@
 /*** Rechercher dans les inputs des filtres ***/
 
 /** Fonction pour filtrer les ingrédients via input **/
-async function getDetailedFilterIngredients() {
+async function getSearchIngredients() {
 
   const filterRender = document.querySelectorAll('.filter__ingredients--list li');
   const cards = document.querySelectorAll('.filter__ingredients--items');
@@ -14,21 +14,21 @@ async function getDetailedFilterIngredients() {
       card.classList.add('is-hidden');
     }
   });
-  console.log('Fonction de recherche de nos ingrédients');
+  console.log('11 - Fonction de recherche de nos ingrédients dans le filtre');
   return (filterRender);
 }
 
 /* Used on filters_recipes.js */ 
-async function getInputIngredient() {
+async function inputIngredient() {
   const searchInputIngredient = document.getElementById('ingredients-input');
   searchInputIngredient.addEventListener('keyup', () => {
-  getDetailedFilterIngredients();
+  getSearchIngredients();
   });
 }
 
 /** Fonction pour filtrer les appareils via input **/
 
-async function getDetailedFilterAppliances() {
+async function getSearchAppliances() {
   const filterRender = document.querySelectorAll('.filter__appliances--list li');
   const cards = document.querySelectorAll('.filter__appliances--items');
   const searchQuery = document.getElementById('appliances-input').value;
@@ -40,21 +40,21 @@ async function getDetailedFilterAppliances() {
       card.classList.add('is-hidden');
     }
   });
-  console.log('Fonction de recherche de nos appareils');
+  console.log(' 12 - Fonction de recherche de nos appareils dans le filtre');
   return (filterRender);
 }
 
 /* Used on filters_recipes.js */ 
-async function getInputAppliance() {
+async function inputAppliance() {
   const searchInputAppliance = document.getElementById('appliances-input');
   searchInputAppliance.addEventListener('keyup', () => {
-  getDetailedFilterAppliances();
+  getSearchAppliances();
   });
 }
 
 /** Fonction pour filtrer les ustensils via input **/
 
-async function getDetailedFilterUstensils() {
+async function getSearchUstensils() {
   const filterRender = document.querySelectorAll('.filter__ustensils--list li');
   const cards = document.querySelectorAll('.filter__ustensils--items');
   const searchQuery = document.getElementById('ustensils-input').value;
@@ -66,15 +66,15 @@ async function getDetailedFilterUstensils() {
       card.classList.add('is-hidden');
     }
   });
-  console.log('Fonction de recherche de nos ustensils');
+  console.log('13 - Fonction de recherche de nos ustensils dans le filtre');
   return (filterRender);
 }
 
 /* Used on filters_recipes.js */ 
-async function getInputUstensil() {
+async function inputUstensil() {
   const searchInputUstensil = document.getElementById('ustensils-input');
   searchInputUstensil.addEventListener('keyup', () => {
-  getDetailedFilterUstensils();
+  getSearchUstensils();
   });
 }
 

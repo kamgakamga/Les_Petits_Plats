@@ -1,11 +1,14 @@
+let recipes = [];
+
 async function getDataJson() {
   const response = await fetch ('data/recipes.json');
-  const recipes = await response.json();
+  recipes = (await response.json()).recipes;
   console.log('1 - ExtractionJSON Recipes');
-  return recipes;
+  init();
 }
-
-async function displayData(recipes) {
+/*** Afficher les cards ***/
+function displayData(recipes) {
+  console.log('display Data');
   const recipeSection = document.getElementById('recipes__cards');
   recipeSection.innerHTML = '';
   for (const recipe of recipes) {
@@ -16,10 +19,10 @@ async function displayData(recipes) {
   console.log('3 - Afficher les Recipes :' ,recipes);
 }
 
-async function init() {
+function init() {
   
   /* ExtractionJSON recipes */ 
-  const { recipes } = await getDataJson();
+  // const { recipes } = await getDataJson();
   /* Afficher les recipes */ 
   displayData(recipes);
   
@@ -38,9 +41,6 @@ async function init() {
   addTagFilterIngredients();
   addTagFilterAppliances();
   addTagFilterUstensils();
-
-  // searchRecipesToDisplay();
-  // search();
 }
 
-init();
+getDataJson();

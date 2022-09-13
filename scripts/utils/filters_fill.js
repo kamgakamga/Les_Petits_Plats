@@ -104,6 +104,4 @@ function isArrowClicked() {
       applianceArrowUp.click();
     }  
   });
-
-  console.log('Function - ArrowDown was clicked');
 }

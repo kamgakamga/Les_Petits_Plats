@@ -28,12 +28,11 @@ function addTagFilterIngredients() {
     tagIngredientAlreadyAdded = true;
     Array.from(filterItemIngredients).forEach((element) => {
       element.addEventListener('click', (e) => {
-        
         const tagIngredient = document.createElement('div');
         tagIngredient.setAttribute('class', 'tag__ingredient');
-        tagIngredient.classList.add('tagIngredient')
+        tagIngredient.classList.add('tagIngredient');
         tagIngredient.innerHTML = e.target.outerHTML;
-        
+
         const deleteTagIcon = document.createElement('span');
         deleteTagIcon.classname = 'deleteIcon';
         
@@ -126,11 +125,11 @@ function addTagFilterUstensils() {
 /* filteredRecipesWithTags */
 function filteredRecipesWithTags(recipesToFilter) {
   /* Faire des tableaux des items afficher pour chaque filtre */ 
-  const taggedIngredientsDOM = Array.from(document.querySelectorAll('.filter__ingredients--items'));
+  const taggedIngredientsDOM = Array.from(document.querySelectorAll('.filter__ingredients--items li'));
 
-  const taggedAppliancesDOM = Array.from(document.querySelectorAll('.filter__appliances--items'));
+  const taggedAppliancesDOM = Array.from(document.querySelectorAll('.filter__appliances--items li'));
 
-  const taggedustensilsDOM = Array.from(document.querySelectorAll('.filter__ustensils--items'));
+  const taggedustensilsDOM = Array.from(document.querySelectorAll('.filter__ustensils--items li'));
 
   let recipesToDisplay = [];
   let taggedIngredients = [];
@@ -207,6 +206,6 @@ function filteredRecipesWithTags(recipesToFilter) {
 
     return recipeIsMatching;
   });
-  
+
   return recipesToDisplay;
 }
