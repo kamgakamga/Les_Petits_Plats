@@ -1,6 +1,6 @@
 /*** Rechercher dans les inputs des filtres ***/
 
-/** Fonction pour filtrer les ingrédients via input **/
+/** Fonction pour rechercher dans le filtre ingrédient via input **/
 function getSearchIngredients() {
 
   const filterRender = document.querySelectorAll('.filter__ingredients--list li');
@@ -22,12 +22,11 @@ function getSearchIngredients() {
 function inputIngredient() {
   const searchInputIngredient = document.getElementById('ingredients-input');
   searchInputIngredient.addEventListener('keyup', () => {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(getSearchIngredients(), typeInterval);
+  getSearchIngredients();
   });
 }
 
-/** Fonction pour filtrer les appareils via input **/
+/** Fonction pour rechercher dans le filtre appareis via input **/
 
 function getSearchAppliances() {
   const filterRender = document.querySelectorAll('.filter__appliances--list li');
@@ -49,12 +48,11 @@ function getSearchAppliances() {
 function inputAppliance() {
   const searchInputAppliance = document.getElementById('appliances-input');
   searchInputAppliance.addEventListener('keyup', () => {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(getSearchAppliances(), typeInterval);
+    getSearchAppliances();
   });
 }
 
-/** Fonction pour filtrer les ustensils via input **/
+/** Fonction pour rechercher dans le filtre ustensil via input **/
 
 function getSearchUstensils() {
   const filterRender = document.querySelectorAll('.filter__ustensils--list li');
@@ -76,8 +74,7 @@ function getSearchUstensils() {
 function inputUstensil() {
   const searchInputUstensil = document.getElementById('ustensils-input');
   searchInputUstensil.addEventListener('keyup', () => {
-    clearTimeout(typingTimer);
-    typingTimer = setTimeout(getSearchUstensils(), typeInterval);
+  getSearchUstensils();
   });
 }
 

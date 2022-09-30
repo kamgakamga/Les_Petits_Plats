@@ -7,7 +7,7 @@ function searchRecipesToDisplay() {
 
   const article = document.getElementsByName('article');
   const cards = document.querySelectorAll('article');
-  const searchQuery = document.querySelector('.search__input').value.trim();
+  const searchQuery = document.querySelector('.search__input').value.trim().toLowerCase();
 
   cards.forEach((card) => {
     if (card.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
@@ -48,9 +48,11 @@ function searchLive() {
     });
     /* Remplir les filtres avec le tableau retourné */
     fillFilters(recipesToDisplay);
+    console.log('mot recherché', mainInput + '');
   }
   
-  // déboguage empêche une recherche correct pour le moment.
+  /* Si l'un de ses tableaux comportent un élément alors un tag est utilisé, applique donc la fonction filteredRecipesWithTags avec comme callback recipesToDisplay;
+  Les tableaux sont définis dans tags.js dans la fonction filteredRecipesWithTags. */
   if (Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient .tag-blue')).length > 0
   || Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance .tag-green')).length > 0
   || Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil .tag-red')).length > 0) {
@@ -81,10 +83,7 @@ function searchLive() {
 }
 
 /*** EVENTS ***/
-let typingTimer;
-const typeInterval = 100;
 searchBarInput.addEventListener('keyup', () => {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(searchLive(), typeInterval);
+  searchLive();
 });
 

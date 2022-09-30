@@ -1,5 +1,6 @@
 /*** fonction pour créer / voir les filtres. ***/
 
+/*** function filterAppliances créer et fait apparaitre le filtre Ingrédient. ***/
 /** filterIngredients() is initiated on index.js **/
 
 function filterIngredients() {
@@ -97,7 +98,7 @@ function filterIngredients() {
 }
 
 
-/*** function filterAppliances créer et fait apparaitre le filtre appareils. ***/
+/*** function filterAppliances créer et fait apparaitre le filtre appareil. ***/
 /** filterAppliances() is initiated on index.js **/
 function filterAppliances() {
   
@@ -191,7 +192,7 @@ function filterAppliances() {
   return(article);
 }
 
-/*** function filterUstensils créer et fait apparaitre le filtre ustensils. ***/
+/*** function filterUstensils créer et fait apparaitre le filtre ustensil. ***/
 /** filterUstensils() is initiated on index.js **/
 function filterUstensils() {
   

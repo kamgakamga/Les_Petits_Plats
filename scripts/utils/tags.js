@@ -28,7 +28,6 @@ function addTagFilterIngredients() {
     tagIngredientAlreadyAdded = true;
     Array.from(filterItemIngredients).forEach((element) => {
       element.addEventListener('click', (e) => {
-        searchLive();
         const tagIngredientContainer = document.createElement('div');
         tagIngredientContainer.setAttribute('class', 'tag__ingredient');
         
@@ -43,7 +42,7 @@ function addTagFilterIngredients() {
         deleteIconImg.className = 'fa-regular fa-circle-xmark';
         deleteIconImg.style.cursor = 'pointer';
         deleteIconImg.style.width = '20px';
-
+        
         deleteIconImg.addEventListener('click', () => {
           tagIngredientContainer.remove();
           searchLive();
@@ -53,6 +52,7 @@ function addTagFilterIngredients() {
         tagIngredientContainer.appendChild(tagIngredient);
         tagIngredientContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
+        searchLive();
       });
     });
   }
@@ -83,12 +83,16 @@ function addTagFilterAppliances() {
         deleteIconImg.style.width = '20px';
         deleteTagIcon.addEventListener('click', () => {
           tagApplianceContainer.remove();
+          // défini dans search_bar.js 
+          searchLive();
           return false;
         });
         tagApplianceWrapper.appendChild(tagApplianceContainer);
         tagApplianceContainer.appendChild(tagAppliance);
         tagApplianceContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
+        // défini dans search_bar.js
+        searchLive();
       });
     });
   }
@@ -119,12 +123,16 @@ function addTagFilterUstensils() {
         deleteIconImg.style.width = '20px';
         deleteTagIcon.addEventListener('click', () => {
           tagUstensilContainer.remove();
+          // défini dans search_bar.js
+          searchLive();
           return false;
         });
         tagUstensilWrapper.appendChild(tagUstensilContainer);
         tagUstensilContainer.appendChild(tagUstensil);
         tagUstensilContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
+        // défini dans search_bar.js
+        searchLive()
       });
     });
   }
@@ -136,10 +144,10 @@ function addTagFilterUstensils() {
 
 /* filteredRecipesWithTags */
 function filteredRecipesWithTags(recipesToFilter) {
-  console.log('recherche des tags sur '+recipesToFilter.length);
+  console.log(recipesToFilter.length + ' recettes comprises avant les tags ');
   /* Faire des tableaux des items afficher pour chaque filtre */ 
   const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient .tag-blue'));
-console.log(taggedIngredientsDOM);
+
   const taggedAppliancesDOM = Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance .tag-green'));
 
   const taggedustensilsDOM = Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil .tag-red'));
@@ -153,7 +161,7 @@ console.log(taggedIngredientsDOM);
   taggedAppliances = taggedAppliancesDOM.map((taggedAppliance) => taggedAppliance.innerText);
   taggedUstensils = taggedustensilsDOM.map((taggedUstensil) => taggedUstensil.innerText);
   
-  console.log('###', taggedIngredients, taggedAppliances, taggedUstensils);
+  console.log('tags utilisés :', taggedIngredients, taggedAppliances, taggedUstensils);
   /* Définir le tableau recipesToDisplay un filtre de recipes */
   recipesToDisplay = recipesToFilter.filter((recipe) => {
     let recipeIsMatching = false;
@@ -219,7 +227,7 @@ console.log(taggedIngredientsDOM);
 
     return recipeIsMatching;
   });
-  console.log('après tags', recipesToDisplay.length);
+  console.log(recipesToDisplay.length + ' recettes après les tags');
   fillFilters(recipesToDisplay);
   return recipesToDisplay;
 }

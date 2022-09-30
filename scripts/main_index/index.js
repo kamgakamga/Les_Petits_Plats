@@ -35,10 +35,6 @@ function init() {
   
   /* Remplir les filtres avec les données */ 
   fillFilters(recipes);
-
-  /* Afficher les tags de chaque filtre */ 
-  // Se déclenche lors que l'on clique sur arrowDown de chaque filtre.
-  
 }
 
 getDataJson();
