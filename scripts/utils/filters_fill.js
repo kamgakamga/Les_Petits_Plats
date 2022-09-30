@@ -11,6 +11,11 @@ function fillFilters(recipes) {
   const appliancesList = [];
   const ustensilsList = [];
 
+  // On vide les listes à chaque fois que l'on appel la fonction.
+  ingredientsBloc.innerHTML = '';
+  appliancesBloc.innerHTML = '';
+  ustensilsBloc.innerHMTL = '';
+
   recipes.forEach((recipe) => {
     /** Ingredients **/
     recipe.ingredients.forEach(({ ingredient }) => {
@@ -43,7 +48,14 @@ function fillFilters(recipes) {
       }
     });
   });
-  console.log('7 - Remplir les filtres avec les données', [ingredientsList], [appliancesList], [ustensilsList]);
+  /* Variable défini dans tags.js */
+  tagIngredientAlreadyAdded = false;
+  addTagFilterIngredients();
+  tagApplianceAlreadyAdded = false;
+  addTagFilterAppliances();
+  tagUstensilAlreadyAdded = false;
+  addTagFilterUstensils();
+  console.log('7 - Remplir les filtres avec les données filtrer', [ingredientsList], [appliancesList], [ustensilsList]);
 };
 
 /*** Fonction pour ouvrir qu'un seul filtre à la fois. ***/

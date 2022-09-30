@@ -1,7 +1,7 @@
 /*** Rechercher dans les inputs des filtres ***/
 
 /** Fonction pour filtrer les ingrédients via input **/
-async function getSearchIngredients() {
+function getSearchIngredients() {
 
   const filterRender = document.querySelectorAll('.filter__ingredients--list li');
   const cards = document.querySelectorAll('.filter__ingredients--items');
@@ -19,16 +19,17 @@ async function getSearchIngredients() {
 }
 
 /* Used on filters_recipes.js */ 
-async function inputIngredient() {
+function inputIngredient() {
   const searchInputIngredient = document.getElementById('ingredients-input');
   searchInputIngredient.addEventListener('keyup', () => {
-  getSearchIngredients();
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(getSearchIngredients(), typeInterval);
   });
 }
 
 /** Fonction pour filtrer les appareils via input **/
 
-async function getSearchAppliances() {
+function getSearchAppliances() {
   const filterRender = document.querySelectorAll('.filter__appliances--list li');
   const cards = document.querySelectorAll('.filter__appliances--items');
   const searchQuery = document.getElementById('appliances-input').value;
@@ -45,16 +46,17 @@ async function getSearchAppliances() {
 }
 
 /* Used on filters_recipes.js */ 
-async function inputAppliance() {
+function inputAppliance() {
   const searchInputAppliance = document.getElementById('appliances-input');
   searchInputAppliance.addEventListener('keyup', () => {
-  getSearchAppliances();
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(getSearchAppliances(), typeInterval);
   });
 }
 
 /** Fonction pour filtrer les ustensils via input **/
 
-async function getSearchUstensils() {
+function getSearchUstensils() {
   const filterRender = document.querySelectorAll('.filter__ustensils--list li');
   const cards = document.querySelectorAll('.filter__ustensils--items');
   const searchQuery = document.getElementById('ustensils-input').value;
@@ -71,10 +73,11 @@ async function getSearchUstensils() {
 }
 
 /* Used on filters_recipes.js */ 
-async function inputUstensil() {
+function inputUstensil() {
   const searchInputUstensil = document.getElementById('ustensils-input');
   searchInputUstensil.addEventListener('keyup', () => {
-  getSearchUstensils();
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(getSearchUstensils(), typeInterval);
   });
 }
 

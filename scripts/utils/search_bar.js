@@ -1,9 +1,8 @@
 
 const searchBarInput = document.querySelector('.search__input');
-const recipeSection = document.getElementById('recipes__cards');
 const noResultText = document.querySelector('.no-result-message');
 
-/*** Recherche les cards qui inclus ce que l'on cherche (sans les tags) ***/ 
+/*** Recherche les cards qui inclus ce que l'on tape dans la main input. (sans les tags) ***/
 function searchRecipesToDisplay() {
 
   const article = document.getElementsByName('article');
@@ -21,16 +20,18 @@ function searchRecipesToDisplay() {
   return(article);
 }
 
+
 /** Fonction de recherche  **/
 function searchLive() {
   let tagsUsed = false;
   recipesToDisplay = [];
   let mainInput;
-  
+
+  // Retourne un tableau 'recipeToDisplay' qui suit les règles de ma regex.
   if (searchBarInput.value.length > 2) {
     mainInput = searchBarInput.value;
 
-    const regex = new RegExp(`${mainInput.trim()}`, 'i');
+    const regex = new RegExp(`${mainInput.trim().toLowerCase()}`);
     recipesToDisplay = recipes.filter((recipe) => {
       let recipeIsMatching = false;
       if (regex.test(recipe.name)) {
@@ -45,20 +46,23 @@ function searchLive() {
       });
       return recipeIsMatching;
     });
-    /* Remplir les filtres avec les recettes filtrer par la searchBar */
-    // fillFilters(recipesToDisplay);
+    /* Remplir les filtres avec le tableau retourné */
+    fillFilters(recipesToDisplay);
   }
   
-  if (Array.from(document.querySelectorAll('.filter__ingredients--items li')).length > 0 
-  || Array.from(document.querySelectorAll('.filter__appliances--items li')).length > 0
-  || Array.from(document.querySelectorAll('.filter__ustensils--items li')).length > 0) {
+  // déboguage empêche une recherche correct pour le moment.
+  if (Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient .tag-blue')).length > 0
+  || Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance .tag-green')).length > 0
+  || Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil .tag-red')).length > 0) {
     tagsUsed = true;
+    console.log('on passe ici');
     if (recipesToDisplay.length > 0) {
       recipesToDisplay = filteredRecipesWithTags(recipesToDisplay);
     } else {
-      recipesToDisplay = filteredRecipesWithTags(recipes);
+    recipesToDisplay = filteredRecipesWithTags(recipes);
     }
   }
+
   /** Message erreur dans le cas d'une mauvaise recherche **/
   if (recipesToDisplay.length > 0) {
     noResultText.innerHTML = '';
@@ -69,7 +73,7 @@ function searchLive() {
   }
 
   // Si la barre de recherche est vide ou moins de 3 caractères.
-  if ((searchBarInput.value === '') || (searchBarInput.value.length < 3) && tagsUsed === false) {
+  if (((searchBarInput.value === '') || (searchBarInput.value.length < 3)) && tagsUsed === false) {
     fillFilters(recipes);
     displayData(recipes);
     noResultText.innerHTML = '';
@@ -77,7 +81,10 @@ function searchLive() {
 }
 
 /*** EVENTS ***/
+let typingTimer;
+const typeInterval = 100;
 searchBarInput.addEventListener('keyup', () => {
-  searchLive();
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(searchLive(), typeInterval);
 });
 

@@ -2,7 +2,7 @@
 
 /** filterIngredients() is initiated on index.js **/
 
-async function filterIngredients() {
+function filterIngredients() {
 
   const ingredientsBox = document.getElementsByClassName('filter__ingredients');
   const template = document.createElement('div');
@@ -44,18 +44,6 @@ async function filterIngredients() {
   ingredientsListBox.style.display = 'none';
 
   /** Ingredients Event **/
-  
-  // /* Test : création d'une recherche avec le filtre petit */
-  // title.addEventListener('click', (e) => {
-  //   if (e.target.className === 'filter__ingredients--name') {
-  //     inputIngredients.style.display = 'flex';
-  //     inputIngredients.removeAttribute('placeholder');
-  //     inputIngredients.focus();
-      
-  //     /* défini dans filters_input */
-  //     getInputIngredient(); 
-  //   }
-  // });
 
   /* Lors du clique sur ArrowDown */
   arrowDown.addEventListener('click', (e) => {
@@ -70,9 +58,11 @@ async function filterIngredients() {
       ingredientsListBox.style.display = 'flex';
       inputIngredients.focus();
       
-      /* défini dans filters_input */
+    /* défini dans filters_input */
       inputIngredient();
     }
+    /* Défini dans tags.js */
+    addTagFilterIngredients();
   });
   
   /* Lors du clique sur ArrowUp */
@@ -167,6 +157,8 @@ function filterAppliances() {
     /* Défini dans filters_input */
     inputAppliance();
     }
+    /* Défini dans tags.js */
+    addTagFilterAppliances();
   });
 
   /* Lors du clique sur ArrowUp */
@@ -259,6 +251,8 @@ function filterUstensils() {
       /* Défini dans Filters_input */
       inputUstensil();
     }
+    /* Défini dans tags.js */
+    addTagFilterUstensils();
   });
 
   /* Lors du clique sur ArrowUp */

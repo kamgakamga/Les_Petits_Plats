@@ -8,7 +8,6 @@ async function getDataJson() {
 }
 /*** Afficher les cards ***/
 function displayData(recipes) {
-  console.log('display Data');
   const recipeSection = document.getElementById('recipes__cards');
   recipeSection.innerHTML = '';
   for (const recipe of recipes) {
@@ -38,9 +37,8 @@ function init() {
   fillFilters(recipes);
 
   /* Afficher les tags de chaque filtre */ 
-  addTagFilterIngredients();
-  addTagFilterAppliances();
-  addTagFilterUstensils();
+  // Se déclenche lors que l'on clique sur arrowDown de chaque filtre.
+  
 }
 
 getDataJson();

@@ -28,11 +28,14 @@ function addTagFilterIngredients() {
     tagIngredientAlreadyAdded = true;
     Array.from(filterItemIngredients).forEach((element) => {
       element.addEventListener('click', (e) => {
-        const tagIngredient = document.createElement('div');
-        tagIngredient.setAttribute('class', 'tag__ingredient');
-        tagIngredient.classList.add('tagIngredient');
-        tagIngredient.innerHTML = e.target.outerHTML;
-
+        searchLive();
+        const tagIngredientContainer = document.createElement('div');
+        tagIngredientContainer.setAttribute('class', 'tag__ingredient');
+        
+        const tagIngredient = document.createElement('li');
+        tagIngredient.innerText = e.target.innerText;
+        tagIngredient.classList.add('tag-blue');
+        
         const deleteTagIcon = document.createElement('span');
         deleteTagIcon.classname = 'deleteIcon';
         
@@ -40,17 +43,20 @@ function addTagFilterIngredients() {
         deleteIconImg.className = 'fa-regular fa-circle-xmark';
         deleteIconImg.style.cursor = 'pointer';
         deleteIconImg.style.width = '20px';
+
         deleteIconImg.addEventListener('click', () => {
-          tagIngredient.remove();
+          tagIngredientContainer.remove();
+          searchLive();
           return false;
         });
-        tagIngredientWrapper.appendChild(tagIngredient);
-        tagIngredient.appendChild(deleteTagIcon);
+        tagIngredientWrapper.appendChild(tagIngredientContainer);
+        tagIngredientContainer.appendChild(tagIngredient);
+        tagIngredientContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
       });
     });
   }
-  console.log(' 8 - Création des tags pour fil.Ingredient');
+  console.log(' Création des tags pour fil.Ingredient ');
 }
 
 /* Appareils */ 
@@ -60,12 +66,14 @@ function addTagFilterAppliances() {
     tagApplianceAlreadyAdded = true;
     Array.from(filterItemAppliances).forEach((element) => {
       element.addEventListener('click', (e) => {
-        
-        const tagAppliance = document.createElement('div');
-        tagAppliance.setAttribute('class', 'tag__appliance');
-        tagAppliance.classList.add('tagAppliance');
-        tagAppliance.innerHTML = e.target.outerHTML;
-        
+
+        const tagApplianceContainer = document.createElement('div');
+        tagApplianceContainer.setAttribute('class', 'tag__appliance');
+
+        const tagAppliance = document.createElement('li');
+        tagAppliance.innerText = e.target.innerText;
+        tagAppliance.classList.add('tag-green');
+
         const deleteTagIcon = document.createElement('span');
         deleteTagIcon.className = 'deleteIcon';
         
@@ -74,16 +82,17 @@ function addTagFilterAppliances() {
         deleteIconImg.style.cursor = 'pointer';
         deleteIconImg.style.width = '20px';
         deleteTagIcon.addEventListener('click', () => {
-          tagAppliance.remove();
+          tagApplianceContainer.remove();
           return false;
         });
-        tagApplianceWrapper.appendChild(tagAppliance);
-        tagAppliance.appendChild(deleteTagIcon);
+        tagApplianceWrapper.appendChild(tagApplianceContainer);
+        tagApplianceContainer.appendChild(tagAppliance);
+        tagApplianceContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
       });
     });
   }
-  console.log(' 9 - Création des tags pour fil.Appareil');
+  console.log(' Création des tags pour fil.Appareil ');
 }
 
 /* Ustensils */ 
@@ -94,10 +103,12 @@ function addTagFilterUstensils() {
     Array.from(filterItemUstensils).forEach((element) => {
       element.addEventListener('click', (e) => {
         
-        const tagUstensil = document.createElement('div');
-        tagUstensil.setAttribute('class', 'tag__ustensil');
-        tagUstensil.classList.add('tagUstensil');
-        tagUstensil.innerHTML = e.target.outerHTML;
+        const tagUstensilContainer = document.createElement('div');
+        tagUstensilContainer.setAttribute('class', 'tag__ustensil');
+
+        const tagUstensil = document.createElement('li');
+        tagUstensil.innerText = e.target.innerText;
+        tagUstensil.classList.add('tag-red');
         
         const deleteTagIcon = document.createElement('span');
         deleteTagIcon.className = 'deleteIcon';
@@ -107,40 +118,42 @@ function addTagFilterUstensils() {
         deleteIconImg.style.cursor = 'pointer';
         deleteIconImg.style.width = '20px';
         deleteTagIcon.addEventListener('click', () => {
-          tagUstensil.remove();
+          tagUstensilContainer.remove();
           return false;
         });
-        tagUstensilWrapper.appendChild(tagUstensil);
-        tagUstensil.appendChild(deleteTagIcon);
+        tagUstensilWrapper.appendChild(tagUstensilContainer);
+        tagUstensilContainer.appendChild(tagUstensil);
+        tagUstensilContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
       });
     });
   }
-  console.log(' 10 - Création des tags pour fil.Ustensil');
+  console.log(' Création des tags pour fil.Ustensil ');
 }
 
 
-/** TAG FILTRE RECIPES DISPLAY **/
+/** TAG FILTRE RECIPES **/
 
 /* filteredRecipesWithTags */
 function filteredRecipesWithTags(recipesToFilter) {
+  console.log('recherche des tags sur '+recipesToFilter.length);
   /* Faire des tableaux des items afficher pour chaque filtre */ 
-  const taggedIngredientsDOM = Array.from(document.querySelectorAll('.filter__ingredients--items li'));
+  const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient .tag-blue'));
+console.log(taggedIngredientsDOM);
+  const taggedAppliancesDOM = Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance .tag-green'));
 
-  const taggedAppliancesDOM = Array.from(document.querySelectorAll('.filter__appliances--items li'));
-
-  const taggedustensilsDOM = Array.from(document.querySelectorAll('.filter__ustensils--items li'));
-
+  const taggedustensilsDOM = Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil .tag-red'));
   let recipesToDisplay = [];
   let taggedIngredients = [];
   let taggedAppliances = [];
   let taggedUstensils = [];
-
+  
   /* Créer des tableaux avec map contenant le texte de chaque tableau */
   taggedIngredients = taggedIngredientsDOM.map((taggedIngredient) => taggedIngredient.innerText);
   taggedAppliances = taggedAppliancesDOM.map((taggedAppliance) => taggedAppliance.innerText);
   taggedUstensils = taggedustensilsDOM.map((taggedUstensil) => taggedUstensil.innerText);
-
+  
+  console.log('###', taggedIngredients, taggedAppliances, taggedUstensils);
   /* Définir le tableau recipesToDisplay un filtre de recipes */
   recipesToDisplay = recipesToFilter.filter((recipe) => {
     let recipeIsMatching = false;
@@ -196,7 +209,7 @@ function filteredRecipesWithTags(recipesToFilter) {
       }
     } else applianceIsMatching = true;
 
-    if (ustensilIsMatching === taggedUstensils.length) {
+    if (ustensilsMatching === taggedUstensils.length) {
       ustensilIsMatching = true;
     }
 
@@ -206,6 +219,7 @@ function filteredRecipesWithTags(recipesToFilter) {
 
     return recipeIsMatching;
   });
-
+  console.log('après tags', recipesToDisplay.length);
+  fillFilters(recipesToDisplay);
   return recipesToDisplay;
 }
