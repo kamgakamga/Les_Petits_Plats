@@ -14,7 +14,7 @@ function fillFilters(recipes) {
   // On vide les listes à chaque fois que l'on appel la fonction.
   ingredientsBloc.innerHTML = '';
   appliancesBloc.innerHTML = '';
-  ustensilsBloc.innerHMTL = '';
+  ustensilsBloc.innerHTML = '';
 
   recipes.forEach((recipe) => {
     /** Ingredients **/
@@ -39,15 +39,20 @@ function fillFilters(recipes) {
 
     /** ustensils **/
     recipe.ustensils.forEach((ustensil) => {
+      console.log('debubg ustensil', ustensil);
       if (ustensilsList.includes(ustensil) === false) {
+        console.log("on l'ajoute");
         ustensilsList.push(ustensil);
         const filterItem = document.createElement('li');
         filterItem.classList.add('filter__ustensils--items');
         filterItem.innerText = ustensil;
         ustensilsBloc.appendChild(filterItem);
+      } else {
+        console.log("on ajoute pas");
       }
     });
   });
+  console.log('nombre de li', ustensilsBloc.children.length);
   /* Variable défini dans tags.js */
   tagIngredientAlreadyAdded = false;
   addTagFilterIngredients();

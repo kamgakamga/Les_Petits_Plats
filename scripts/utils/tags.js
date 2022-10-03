@@ -132,7 +132,7 @@ function addTagFilterUstensils() {
         tagUstensilContainer.appendChild(deleteTagIcon);
         deleteTagIcon.appendChild(deleteIconImg);
         // défini dans search_bar.js
-        searchLive()
+        searchLive();
       });
     });
   }
@@ -228,6 +228,7 @@ function filteredRecipesWithTags(recipesToFilter) {
     return recipeIsMatching;
   });
   console.log(recipesToDisplay.length + ' recettes après les tags');
+  // filFilters is defined in filters-fill.js 
   fillFilters(recipesToDisplay);
   return recipesToDisplay;
 }

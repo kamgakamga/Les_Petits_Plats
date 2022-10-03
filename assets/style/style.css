@@ -302,7 +302,7 @@ body {
 
 .filter__ingredients--list {
   background-color: var(--primary);
-  overflow: hidden;
+  overflow: scroll;
 
   position: absolute;
   width: 666px;
@@ -438,7 +438,7 @@ body {
 
 .filter__appliances--list {
   background-color: var(--success);
-  overflow: hidden;
+  overflow: scroll;
 
   position: absolute;
   width: 666px;
@@ -576,7 +576,7 @@ body {
 
 .filter__ustensils--list {
   background-color: var(--danger);
-  overflow: hidden;
+  overflow: scroll;
 
   position: absolute;
   width: 666px;
@@ -689,13 +689,14 @@ body {
 
 #recipes__cards .ingredients__detailled--bloc {
   padding-left: 1.5rem;
+  overflow: scroll;
 }
 
 #recipes__cards .description {
   text-overflow: ellipsis;
-  overflow: hidden;
+  overflow: scroll;
 
-  padding: 0 1.5rem;
+  padding: 0.3rem 1.5rem;
   text-align: justify;
   width: 70%;
 }

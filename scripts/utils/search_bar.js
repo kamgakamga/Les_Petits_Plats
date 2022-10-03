@@ -72,7 +72,7 @@ function searchLive() {
   } else {
     displayData(recipesToDisplay);
      noResultText.innerHTML = '<p>Aucune recette ne correspond à votre critère...</p>';
-  }
+  } 
 
   // Si la barre de recherche est vide ou moins de 3 caractères.
   if (((searchBarInput.value === '') || (searchBarInput.value.length < 3)) && tagsUsed === false) {
@@ -83,7 +83,11 @@ function searchLive() {
 }
 
 /*** EVENTS ***/
+
+let typingTimer;
+const typeInterval = 100;
 searchBarInput.addEventListener('keyup', () => {
-  searchLive();
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(searchLive(), typeInterval);
 });
 

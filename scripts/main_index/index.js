@@ -19,20 +19,14 @@ function displayData(recipes) {
 }
 
 function init() {
-  
-  /* ExtractionJSON recipes */ 
-  // const { recipes } = await getDataJson();
   /* Afficher les recipes */ 
   displayData(recipes);
-  
   /* Afficher les filtres */ 
   filterIngredients();
   filterAppliances();
   filterUstensils();
-  
   /* N'ouvrir qu'un seul filtre à la fois */ 
   isArrowClicked();
-  
   /* Remplir les filtres avec les données */ 
   fillFilters(recipes);
 }

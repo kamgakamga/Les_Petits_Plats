@@ -1,7 +1,7 @@
 /*** fonction pour créer / voir les filtres. ***/
 
 /*** function filterAppliances créer et fait apparaitre le filtre Ingrédient. ***/
-/** filterIngredients() is initiated on index.js **/
+/** filterIngredients is initiated on index.js **/
 
 function filterIngredients() {
 

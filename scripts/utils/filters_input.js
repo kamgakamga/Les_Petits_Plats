@@ -22,7 +22,9 @@ function getSearchIngredients() {
 function inputIngredient() {
   const searchInputIngredient = document.getElementById('ingredients-input');
   searchInputIngredient.addEventListener('keyup', () => {
-  getSearchIngredients();
+    // clearTimeout is defined on search_bar.js 
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(getSearchIngredients, typeInterval);
   });
 }
 
@@ -48,7 +50,9 @@ function getSearchAppliances() {
 function inputAppliance() {
   const searchInputAppliance = document.getElementById('appliances-input');
   searchInputAppliance.addEventListener('keyup', () => {
-    getSearchAppliances();
+        // clearTimeout is defined on search_bar.js 
+    clearTimeout(typingTimer);
+  typingTimer = setTimeout(getSearchAppliances, typeInterval);
   });
 }
 
@@ -74,7 +78,9 @@ function getSearchUstensils() {
 function inputUstensil() {
   const searchInputUstensil = document.getElementById('ustensils-input');
   searchInputUstensil.addEventListener('keyup', () => {
-  getSearchUstensils();
+        // clearTimeout is defined on search_bar.js 
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(getSearchUstensils, typeInterval);
   });
 }
 
