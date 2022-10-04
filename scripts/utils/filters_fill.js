@@ -1,9 +1,10 @@
 /*** Fonction pour remplir les filtres par catégorie ***/
 
-/** fillfilters() is initiated on index.js **/
 
+/** fillfilters() is initiated on index.js **/
+// eslint-disable-next-line no-unused-vars
 function fillFilters(recipes) {
-  const ingredientsBloc = document.querySelector('.filter__ingredients--list'); 
+  const ingredientsBloc = document.querySelector('.filter__ingredients--list');
   const appliancesBloc = document.querySelector('.filter__appliances--list');
   const ustensilsBloc = document.querySelector('.filter__ustensils--list');
 
@@ -39,31 +40,33 @@ function fillFilters(recipes) {
 
     /** ustensils **/
     recipe.ustensils.forEach((ustensil) => {
-      console.log('debubg ustensil', ustensil);
       if (ustensilsList.includes(ustensil) === false) {
-        console.log("on l'ajoute");
         ustensilsList.push(ustensil);
         const filterItem = document.createElement('li');
         filterItem.classList.add('filter__ustensils--items');
         filterItem.innerText = ustensil;
         ustensilsBloc.appendChild(filterItem);
-      } else {
-        console.log("on ajoute pas");
-      }
+      } 
     });
   });
-  console.log('nombre de li', ustensilsBloc.children.length);
   /* Variable défini dans tags.js */
+  // eslint-disable-next-line no-undef
   tagIngredientAlreadyAdded = false;
+  // eslint-disable-next-line no-undef
   addTagFilterIngredients();
+  // eslint-disable-next-line no-undef
   tagApplianceAlreadyAdded = false;
+  // eslint-disable-next-line no-undef
   addTagFilterAppliances();
+  // eslint-disable-next-line no-undef
   tagUstensilAlreadyAdded = false;
+  // eslint-disable-next-line no-undef
   addTagFilterUstensils();
   console.log('7 - Remplir les filtres avec les données filtrer', [ingredientsList], [appliancesList], [ustensilsList]);
-};
+}
 
 /*** Fonction pour ouvrir qu'un seul filtre à la fois. ***/
+// eslint-disable-next-line no-unused-vars
 function isArrowClicked() {
   /** Variables **/
 

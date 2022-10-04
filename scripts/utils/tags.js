@@ -1,8 +1,12 @@
+/** searchLive is defined in search_bar.js **/
+/* eslint-disable no-undef */
+/* eslint-disable no-loop-func */
+/* eslint-disable no-restricted-syntax */
 /*** Variables ***/
 
 /** On sélectionne les items dans chaque filtre **/
 
-const filterItemIngredients = document.getElementsByClassName('filter__ingredients--items');;
+const filterItemIngredients = document.getElementsByClassName('filter__ingredients--items');
 const filterItemAppliances = document.getElementsByClassName('filter__appliances--items');
 const filterItemUstensils = document.getElementsByClassName('filter__ustensils--items');
 
@@ -23,6 +27,7 @@ const tagUstensilWrapper = document.querySelector('.tag__ustensils--wrapper');
 
 /* Ingrédients */
 
+// eslint-disable-next-line no-unused-vars
 function addTagFilterIngredients() {
   if (tagIngredientAlreadyAdded === false) {
     tagIngredientAlreadyAdded = true;
@@ -61,6 +66,7 @@ function addTagFilterIngredients() {
 
 /* Appareils */ 
 
+// eslint-disable-next-line no-unused-vars
 function addTagFilterAppliances() {
   if (tagApplianceAlreadyAdded === false) {
     tagApplianceAlreadyAdded = true;
@@ -101,6 +107,7 @@ function addTagFilterAppliances() {
 
 /* Ustensils */ 
 
+// eslint-disable-next-line no-unused-vars
 function addTagFilterUstensils() {
   if (tagUstensilAlreadyAdded === false) {
     tagUstensilAlreadyAdded = true;
@@ -143,6 +150,7 @@ function addTagFilterUstensils() {
 /** TAG FILTRE RECIPES **/
 
 /* filteredRecipesWithTags */
+// eslint-disable-next-line no-unused-vars
 function filteredRecipesWithTags(recipesToFilter) {
   console.log(recipesToFilter.length + ' recettes comprises avant les tags ');
   /* Faire des tableaux des items afficher pour chaque filtre */ 

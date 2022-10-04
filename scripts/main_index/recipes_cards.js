@@ -27,6 +27,7 @@ function getIngredients(ingredients) {
 
 /** Factory qui permet de générer nos cards de Recipes. **/
 /* getRecipeCard is used in index.js */
+// eslint-disable-next-line no-unused-vars
 function getRecipeCard(data) {
   const { id, name, servings, ingredients, time, description,  appliance, ustensils } = data;
 

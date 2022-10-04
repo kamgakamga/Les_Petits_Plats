@@ -19,11 +19,14 @@ function getSearchIngredients() {
 }
 
 /* Used on filters_recipes.js */ 
+// eslint-disable-next-line no-unused-vars
 function inputIngredient() {
   const searchInputIngredient = document.getElementById('ingredients-input');
   searchInputIngredient.addEventListener('keyup', () => {
-    // clearTimeout is defined on search_bar.js 
+    // clearTimeout is defined on search_bar.js
+    // eslint-disable-next-line no-undef
     clearTimeout(typingTimer);
+    // eslint-disable-next-line no-undef
     typingTimer = setTimeout(getSearchIngredients, typeInterval);
   });
 }
@@ -47,11 +50,14 @@ function getSearchAppliances() {
 }
 
 /* Used on filters_recipes.js */ 
+// eslint-disable-next-line no-unused-vars
 function inputAppliance() {
   const searchInputAppliance = document.getElementById('appliances-input');
   searchInputAppliance.addEventListener('keyup', () => {
         // clearTimeout is defined on search_bar.js 
+    // eslint-disable-next-line no-undef
     clearTimeout(typingTimer);
+  // eslint-disable-next-line no-undef
   typingTimer = setTimeout(getSearchAppliances, typeInterval);
   });
 }
@@ -75,11 +81,14 @@ function getSearchUstensils() {
 }
 
 /* Used on filters_recipes.js */ 
+// eslint-disable-next-line no-unused-vars
 function inputUstensil() {
   const searchInputUstensil = document.getElementById('ustensils-input');
   searchInputUstensil.addEventListener('keyup', () => {
         // clearTimeout is defined on search_bar.js 
+    // eslint-disable-next-line no-undef
     clearTimeout(typingTimer);
+    // eslint-disable-next-line no-undef
     typingTimer = setTimeout(getSearchUstensils, typeInterval);
   });
 }

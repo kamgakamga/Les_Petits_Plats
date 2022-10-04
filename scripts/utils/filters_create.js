@@ -1,8 +1,9 @@
 /*** fonction pour créer / voir les filtres. ***/
 
 /*** function filterAppliances créer et fait apparaitre le filtre Ingrédient. ***/
-/** filterIngredients is initiated on index.js **/
 
+/** filterIngredients is initiated on index.js **/
+// eslint-disable-next-line no-unused-vars
 function filterIngredients() {
 
   const ingredientsBox = document.getElementsByClassName('filter__ingredients');
@@ -60,9 +61,11 @@ function filterIngredients() {
       inputIngredients.focus();
       
     /* défini dans filters_input */
+      // eslint-disable-next-line no-undef
       inputIngredient();
     }
     /* Défini dans tags.js */
+    // eslint-disable-next-line no-undef
     addTagFilterIngredients();
   });
   
@@ -100,6 +103,7 @@ function filterIngredients() {
 
 /*** function filterAppliances créer et fait apparaitre le filtre appareil. ***/
 /** filterAppliances() is initiated on index.js **/
+// eslint-disable-next-line no-unused-vars
 function filterAppliances() {
   
   const appliancesBox = document.getElementsByClassName('filter__appliances');
@@ -156,9 +160,11 @@ function filterAppliances() {
       inputAppliances.focus();
 
     /* Défini dans filters_input */
+    // eslint-disable-next-line no-undef
     inputAppliance();
     }
     /* Défini dans tags.js */
+    // eslint-disable-next-line no-undef
     addTagFilterAppliances();
   });
 
@@ -194,6 +200,7 @@ function filterAppliances() {
 
 /*** function filterUstensils créer et fait apparaitre le filtre ustensil. ***/
 /** filterUstensils() is initiated on index.js **/
+// eslint-disable-next-line no-unused-vars
 function filterUstensils() {
   
   const ustensilsBox = document.getElementsByClassName('filter__ustensils');
@@ -250,9 +257,11 @@ function filterUstensils() {
       inputUstensils.focus();
 
       /* Défini dans Filters_input */
+      // eslint-disable-next-line no-undef
       inputUstensil();
     }
     /* Défini dans tags.js */
+    // eslint-disable-next-line no-undef
     addTagFilterUstensils();
   });
 

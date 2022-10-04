@@ -1,24 +1,30 @@
+/** recipesToDisplay is defined in tags.js **/
+/** filteredRecipesWithTags is defined in tags.js **/
+/** fillFilters is defined in filters_fill.js **/
+/** DisplayData is defined in index.js **/
+
+/* eslint-disable no-undef */
 
 const searchBarInput = document.querySelector('.search__input');
 const noResultText = document.querySelector('.no-result-message');
 
 /*** Recherche les cards qui inclus ce que l'on tape dans la main input. (sans les tags) ***/
-function searchRecipesToDisplay() {
+// function searchRecipesToDisplay() {
 
-  const article = document.getElementsByName('article');
-  const cards = document.querySelectorAll('article');
-  const searchQuery = document.querySelector('.search__input').value.trim().toLowerCase();
+//   const article = document.getElementsByName('article');
+//   const cards = document.querySelectorAll('article');
+//   const searchQuery = document.querySelector('.search__input').value.trim().toLowerCase();
 
-  cards.forEach((card) => {
-    if (card.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
-      card.classList.remove('is-hidden');
-    } else {
-      card.classList.add('is-hidden');
-    }
-  });
-  console.log('fonction de recherche des recettes à afficher - simple');
-  return(article);
-}
+//   cards.forEach((card) => {
+//     if (card.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
+//       card.classList.remove('is-hidden');
+//     } else {
+//       card.classList.add('is-hidden');
+//     }
+//   });
+//   console.log('fonction de recherche des recettes à afficher - simple');
+//   return(article);
+// }
 
 
 /** Fonction de recherche  **/
