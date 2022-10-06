@@ -15,7 +15,7 @@
 }
 
 body {
-  font-family: "lato", sans-serif;
+  font-family: "lato", 'helvetica', sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: var(--fs-18);
@@ -241,7 +241,6 @@ body {
 }
 
 .filter__ingredients--name {
-  font-family: 'lato', sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -377,7 +376,6 @@ body {
 }
 
 .filter__appliances--name {
-  font-family: 'lato', sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -515,7 +513,6 @@ body {
 }
 
 .filter__ustensils--name {
-  font-family: 'lato', sans-serif;
   font-size: 1rem;
   font-weight: normal;
 }
