@@ -20,4 +20,5 @@ Respecter le design de la maquette [Figma](https://www.figma.com/file/xqeE1ZKlHU
 
 * Projet n°7 : les petits plat de la formation OpenClassrooms JS React.
 * Résultat [JSBENCH](https://jsben.ch/I9eTK)
+* Validateur [W3C](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmilween.github.io%2FLes-petits-plats%2F)
 * code réalisé sans framework JavaScript.
