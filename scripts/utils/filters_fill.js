@@ -20,7 +20,7 @@ function fillFilters(recipes) {
   
   recipes.forEach((recipe) => {
     /** Ingredients **/
-    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    // if tags already used, don't push it.
     const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
     recipe.ingredients.forEach(({ ingredient }) => {
       if (ingredientsList.includes(ingredient) === false && itags.includes(ingredient) === false) {
@@ -33,7 +33,7 @@ function fillFilters(recipes) {
     });
     
     /** appliances **/
-    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    // if tags already used, don't push it.
     const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
       if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
         appliancesList.push(recipe.appliance);
@@ -44,7 +44,7 @@ function fillFilters(recipes) {
       }
 
     /** ustensils **/
-    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    // if tags already used, don't push it.
     const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
     recipe.ustensils.forEach((ustensil) => {
       if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
@@ -69,7 +69,6 @@ function fillFilters(recipes) {
   tagUstensilAlreadyAdded = false;
   // eslint-disable-next-line no-undef
   addTagFilterUstensils();
-  // console.log('7 - Remplir les filtres avec les données filtrer', [ingredientsList], [appliancesList], [ustensilsList]);
 }
 
 /*** Fonction pour ouvrir qu'un seul filtre à la fois. ***/
