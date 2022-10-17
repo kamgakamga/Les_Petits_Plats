@@ -62,7 +62,7 @@ function fillFilters(recipes) {
   tagUstensilAlreadyAdded = false;
   // eslint-disable-next-line no-undef
   addTagFilterUstensils();
-  console.log('7 - Remplir les filtres avec les données filtrer', [ingredientsList], [appliancesList], [ustensilsList]);
+  // console.log('7 - Remplir les filtres avec les données filtrer', [ingredientsList], [appliancesList], [ustensilsList]);
 }
 
 /*** Fonction pour ouvrir qu'un seul filtre à la fois. ***/

@@ -61,7 +61,7 @@ function addTagFilterIngredients() {
       });
     });
   }
-  console.log(' Création des tags pour fil.Ingredient ');
+  // console.log(' Création des tags pour fil.Ingredient ');
 }
 
 /* Appareils */ 
@@ -102,7 +102,7 @@ function addTagFilterAppliances() {
       });
     });
   }
-  console.log(' Création des tags pour fil.Appareil ');
+  // console.log(' Création des tags pour fil.Appareil ');
 }
 
 /* Ustensils */ 
@@ -143,7 +143,7 @@ function addTagFilterUstensils() {
       });
     });
   }
-  console.log(' Création des tags pour fil.Ustensil ');
+  // console.log(' Création des tags pour fil.Ustensil ');
 }
 
 
@@ -152,7 +152,7 @@ function addTagFilterUstensils() {
 /* filteredRecipesWithTags */
 // eslint-disable-next-line no-unused-vars
 function filteredRecipesWithTags(recipesToFilter) {
-  console.log(recipesToFilter.length + ' recettes comprises avant les tags ');
+  // console.log(recipesToFilter.length + ' recettes comprises avant les tags ');
   /* Faire des tableaux des items afficher pour chaque filtre */ 
   const taggedIngredientsDOM = Array.from(document.querySelectorAll('.tag__ingredients--wrapper .tag__ingredient .tag-blue'));
 
@@ -169,7 +169,7 @@ function filteredRecipesWithTags(recipesToFilter) {
   taggedAppliances = taggedAppliancesDOM.map((taggedAppliance) => taggedAppliance.innerText);
   taggedUstensils = taggedustensilsDOM.map((taggedUstensil) => taggedUstensil.innerText);
   
-  console.log('tags utilisés :', taggedIngredients, taggedAppliances, taggedUstensils);
+  // console.log('tags utilisés :', taggedIngredients, taggedAppliances, taggedUstensils);
   /* Définir le tableau recipesToDisplay un filtre de recipes */
   recipesToDisplay = recipesToFilter.filter((recipe) => {
     let recipeIsMatching = false;
@@ -235,7 +235,7 @@ function filteredRecipesWithTags(recipesToFilter) {
 
     return recipeIsMatching;
   });
-  console.log(recipesToDisplay.length + ' recettes après les tags');
+  // console.log(recipesToDisplay.length + ' recettes après les tags');
   // filFilters is defined in filters-fill.js 
   fillFilters(recipesToDisplay);
   return recipesToDisplay;

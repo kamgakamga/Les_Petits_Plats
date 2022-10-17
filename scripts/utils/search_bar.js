@@ -54,7 +54,7 @@ function searchLive() {
     });
     /* Remplir les filtres avec le tableau retourné */
     fillFilters(recipesToDisplay);
-    console.log('mot recherché', mainInput + '');
+    // console.log('mot recherché', mainInput + '');
   }
   
   /* Si l'un de ses tableaux comportent un élément alors un tag est utilisé, applique donc la fonction filteredRecipesWithTags avec comme callback recipesToDisplay;
