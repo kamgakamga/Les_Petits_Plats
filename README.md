@@ -14,7 +14,7 @@ Après avoir édité des livres de cuisine pendant plusieurs années, l’entrep
 
 Respecter le design de la maquette [Figma](https://www.figma.com/file/xqeE1ZKlHUWi2Efo8r73NK/UI-Design-Les-Petits-Plats-FR).
 * Réaliser deux algorithmes distincts, le premier avec une boucle native (for, while...) et l'autre avec une boucle fonctionnelle (forEach, map).
-* Définir quel algorithme fonctionne le mieux et donne le plus de résultats avec [JSBENCH](https://jsben.ch/HKo4O).
+* Définir quel algorithme fonctionne le mieux et donne le plus de résultats avec [JSBENCH](https://jsben.ch/I9eTK).
 
 ## Informations complémentaires 
 
