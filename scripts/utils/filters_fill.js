@@ -17,10 +17,13 @@ function fillFilters(recipes) {
   appliancesBloc.innerHTML = '';
   ustensilsBloc.innerHTML = '';
 
+  
   recipes.forEach((recipe) => {
     /** Ingredients **/
+    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
     recipe.ingredients.forEach(({ ingredient }) => {
-      if (ingredientsList.includes(ingredient) === false) {
+      if (ingredientsList.includes(ingredient) === false && itags.includes(ingredient) === false) {
         ingredientsList.push(ingredient);
         const filterItem = document.createElement('li');
         filterItem.classList.add('filter__ingredients--items');
@@ -30,7 +33,9 @@ function fillFilters(recipes) {
     });
     
     /** appliances **/
-      if (appliancesList.includes(recipe.appliance) === false) {
+    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
+      if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
         appliancesList.push(recipe.appliance);
         const filterItem = document.createElement('li');
         filterItem.classList.add('filter__appliances--items');
@@ -39,8 +44,10 @@ function fillFilters(recipes) {
       }
 
     /** ustensils **/
+    // Si le tags existe déjà, ne le rajoute pas à la liste.
+    const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
     recipe.ustensils.forEach((ustensil) => {
-      if (ustensilsList.includes(ustensil) === false) {
+      if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
         ustensilsList.push(ustensil);
         const filterItem = document.createElement('li');
         filterItem.classList.add('filter__ustensils--items');
