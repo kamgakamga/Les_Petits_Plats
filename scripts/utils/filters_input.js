@@ -1,5 +1,7 @@
 /*** Rechercher dans les inputs des filtres ***/
-
+function monInclude(motif, phrase) {
+  return phrase.indexOf(motif) !== -1;
+}
 /** Fonction pour rechercher dans le filtre ingrédient via input **/
 function getSearchIngredients() {
 
@@ -8,7 +10,8 @@ function getSearchIngredients() {
   const searchQuery = document.getElementById('ingredients-input').value;
 
   cards.forEach((card) => {
-    if (card.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
+     if (card.innerText.toLowerCase().includes(searchQuery.toLowerCase())) {
+    // if (monInclude(card.innerText.toLowerCase(),searchQuery.toLowerCase())) {
       card.classList.remove('is-hidden');
     } else {
       card.classList.add('is-hidden');

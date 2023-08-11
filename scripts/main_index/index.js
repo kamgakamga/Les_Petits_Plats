@@ -9,12 +9,13 @@ async function getDataJson() {
 function displayData(recipes) {
   const recipeSection = document.getElementById('recipes__cards');
   recipeSection.innerHTML = '';
-  for (const recipe of recipes) {
-    /* getRecipeCard is defined in recipes_cards.js */
+
+  recipes.forEach(recipe => {
+     /* getRecipeCard is defined in recipes_cards.js */
     // eslint-disable-next-line no-undef
     const recipeCard = getRecipeCard(recipe);
     recipeSection.appendChild(recipeCard);
-  }
+  });
 }
 
 function init() {

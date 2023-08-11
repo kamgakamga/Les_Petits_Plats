@@ -6,8 +6,7 @@ function getIngredients(ingredients) {
   column.classList.add('ingredients__detailled--bloc');
 
   let ingredientName;
-
-  for (const ingredient of ingredients) {
+  ingredients.forEach((ingredient) => {
     ingredientName = document.createElement('p');
     ingredientName.setAttribute('data-ingredient', ingredient.ingredient);
     if (ingredient.unit === '' || ingredient.unit== null) {
@@ -20,7 +19,8 @@ function getIngredients(ingredients) {
         ingredientName.innerHTML = `<strong>${ingredient.ingredient} : </strong> ${ingredient.quantity} ${ingredient.unit}`;
       }
     column.appendChild(ingredientName);
-  }
+
+  });
   return column;
 }
 

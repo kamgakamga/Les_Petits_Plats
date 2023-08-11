@@ -17,12 +17,22 @@ function fillFilters(recipes) {
   appliancesBloc.innerHTML = '';
   ustensilsBloc.innerHTML = '';
 
-  
-  recipes.forEach((recipe) => {
-    /** Ingredients **/
+  for (let index = 0; index < recipes.length; index++) {
+    const recipe = recipes[index];
+   /** Ingredients **/
     // if tags already used, don't push it.
-    const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
-    recipe.ingredients.forEach(({ ingredient }) => {
+
+    // TODO
+    // const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
+    const itagss = [...document.querySelectorAll('.tag__ingredient')];
+    let itags = [] ;
+    for (let e = 0; e < itagss.length; e++) {
+         const itag = itagss[e];
+         itags.push(itag.innerText);
+    }
+
+    for (let i = 0; i < recipe.ingredients.length; i++) {
+      const ingredient = recipe.ingredients[i];
       if (ingredientsList.includes(ingredient) === false && itags.includes(ingredient) === false) {
         ingredientsList.push(ingredient);
         const filterItem = document.createElement('li');
@@ -30,11 +40,19 @@ function fillFilters(recipes) {
         filterItem.innerText = ingredient;
         ingredientsBloc.appendChild(filterItem);
       }
-    });
+    }
     
-    /** appliances **/
+        /** appliances **/
     // if tags already used, don't push it.
-    const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
+     const atagss = [...document.querySelectorAll('.tag__appliance')];
+    // const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
+    let atags = [] ;
+    for (let e = 0; e < atagss.length; e++) {
+         const atag = atagss[e];
+        atags.push(atag.innerText);
+    }
+
+    console.log('atags', atags);
       if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
         appliancesList.push(recipe.appliance);
         const filterItem = document.createElement('li');
@@ -45,17 +63,94 @@ function fillFilters(recipes) {
 
     /** ustensils **/
     // if tags already used, don't push it.
-    const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
-    recipe.ustensils.forEach((ustensil) => {
-      if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
-        ustensilsList.push(ustensil);
-        const filterItem = document.createElement('li');
-        filterItem.classList.add('filter__ustensils--items');
-        filterItem.innerText = ustensil;
-        ustensilsBloc.appendChild(filterItem);
-      } 
-    });
-  });
+     const utagss = [...document.querySelectorAll('.tag__ustensil')];
+    //  const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
+     let utags = [] ;
+     for (let e = 0; e < utagss.length; e++) {
+          const utag = utagss[e];
+          utags.push(utag.innerText);
+     }
+ 
+      for (let t = 0; t < recipe.ustensils.length; t++) {
+        const ustensil = recipe.ustensils[t];
+        if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
+          ustensilsList.push(ustensil);
+          const filterItem = document.createElement('li');
+          filterItem.classList.add('filter__ustensils--items');
+          filterItem.innerText = ustensil;
+          ustensilsBloc.appendChild(filterItem);
+        } 
+      }
+    
+    /** ustensils **/
+    // if tags already used, don't push it.
+    // const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
+    // recipe.ustensils.forEach((ustensil) => {
+    //   if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
+    //     ustensilsList.push(ustensil);
+    //     const filterItem = document.createElement('li');
+    //     filterItem.classList.add('filter__ustensils--items');
+    //     filterItem.innerText = ustensil;
+    //     ustensilsBloc.appendChild(filterItem);
+    //   } 
+    // });
+
+
+    // recipe.ingredients.forEach(({ ingredient }) => {
+    //   if (ingredientsList.includes(ingredient) === false && itags.includes(ingredient) === false) {
+    //     ingredientsList.push(ingredient);
+    //     const filterItem = document.createElement('li');
+    //     filterItem.classList.add('filter__ingredients--items');
+    //     filterItem.innerText = ingredient;
+    //     ingredientsBloc.appendChild(filterItem);
+    //   }
+    // });
+  
+  }
+
+  // recipes.forEach((recipe) => {
+  //   /** Ingredients **/
+  //   // if tags already used, don't push it.
+  //   const itags = [...document.querySelectorAll('.tag__ingredient')].map( (itag) => itag.innerText);
+  //   recipe.ingredients.forEach(({ ingredient }) => {
+  //     if (ingredientsList.includes(ingredient) === false && itags.includes(ingredient) === false) {
+  //       ingredientsList.push(ingredient);
+  //       const filterItem = document.createElement('li');
+  //       filterItem.classList.add('filter__ingredients--items');
+  //       filterItem.innerText = ingredient;
+  //       ingredientsBloc.appendChild(filterItem);
+  //     }
+  //   });
+    
+  //   /** appliances **/
+  //   // if tags already used, don't push it.
+  //   const atags = [...document.querySelectorAll('.tag__appliance')].map( (atag) => atag.innerText);
+  //     if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
+  //       appliancesList.push(recipe.appliance);
+  //       const filterItem = document.createElement('li');
+  //       filterItem.classList.add('filter__appliances--items');
+  //       filterItem.innerText = recipe.appliance;
+  //       appliancesBloc.appendChild(filterItem);
+  //     }
+
+  //   /** ustensils **/
+  //   // if tags already used, don't push it.
+  //   const utags = [...document.querySelectorAll('.tag__ustensil')].map( (utag) => utag.innerText)
+  //   recipe.ustensils.forEach((ustensil) => {
+  //     if (ustensilsList.includes(ustensil) === false && utags.includes(ustensil) === false) {
+  //       ustensilsList.push(ustensil);
+  //       const filterItem = document.createElement('li');
+  //       filterItem.classList.add('filter__ustensils--items');
+  //       filterItem.innerText = ustensil;
+  //       ustensilsBloc.appendChild(filterItem);
+  //     } 
+  //   });
+  // });
+
+
+
+
+
   /* Variable défini dans tags.js */
   // eslint-disable-next-line no-undef
   tagIngredientAlreadyAdded = false;
