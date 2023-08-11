@@ -51,8 +51,7 @@ function fillFilters(recipes) {
          const atag = atagss[e];
         atags.push(atag.innerText);
     }
-
-    console.log('atags', atags);
+    
       if (appliancesList.includes(recipe.appliance) === false && atags.includes(recipe.appliance) === false) {
         appliancesList.push(recipe.appliance);
         const filterItem = document.createElement('li');

@@ -155,6 +155,7 @@ function filteredRecipesWithTags(recipesToFilter) {
   const taggedAppliancesDOM = Array.from(document.querySelectorAll('.tag__appliances--wrapper .tag__appliance .tag-green'));
 
   const taggedustensilsDOM = Array.from(document.querySelectorAll('.tag__ustensils--wrapper .tag__ustensil .tag-red'));
+  
   let recipesToDisplay = [];
   let taggedIngredients = [];
   let taggedAppliances = [];
